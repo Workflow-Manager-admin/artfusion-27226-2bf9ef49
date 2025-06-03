@@ -164,7 +164,7 @@ function ArtSPlusMainContainer() {
                   cy="13.4"
                   rx="12.3"
                   ry="10.1"
-                  fill="#A0522D"
+                  fill="#D2B48C"
                   stroke="#654321"
                   strokeWidth="1.7"
                 />
