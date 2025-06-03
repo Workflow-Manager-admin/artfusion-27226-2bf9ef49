@@ -537,6 +537,7 @@ body {
   animation: artfusion-fade-up-in 0.6s cubic-bezier(.31,1.01,.45,1.09) both;
   z-index: 107;
 }
+/* Onboarding nudge shadow color update is handled via inline styles in JS */
 
 .app {
   min-height: 100vh;
@@ -622,7 +623,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #7691ff;
+  background-color: #A259FF;
 }
 
 .btn-large {
