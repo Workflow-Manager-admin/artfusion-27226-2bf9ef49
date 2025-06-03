@@ -145,9 +145,9 @@ function ArtSPlusMainContainer() {
               }}
             >
               <svg
-                width="31"
+                width="34"
                 height="27"
-                viewBox="0 0 31 27"
+                viewBox="0 0 44 34"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
@@ -158,45 +158,50 @@ function ArtSPlusMainContainer() {
                 }}
                 aria-hidden="true"
               >
-                {/* Palette base: solid brown for warmth and great contrast */}
-                <ellipse
-                  cx="16"
-                  cy="13.4"
-                  rx="12.3"
-                  ry="10.1"
+                {/* Palette base: authentic classic oval with thumb hole */}
+                <path
+                  d="M23,2
+                  C34,2 42,9.5 42,17.2
+                  C42,23.5 35,32 25,32
+                  C19,32 14.9,29.7 15.8,27.1
+                  C17.2,23.1 22.8,27 22.6,23.1
+                  C22.5,19.8 17.4,21.1 13.6,20
+                  C8,18.5 2.4,12.9 2,8
+                  C1.2,3.3 11.4,2 23,2
+                  Z"
                   fill="#D2B48C"
                   stroke="#654321"
-                  strokeWidth="1.7"
+                  strokeWidth="2.2"
+                  opacity="0.98"
                 />
-                {/* Palette thumb hole */}
+                {/* Thumb hole */}
                 <ellipse
-                  cx="25.2"
-                  cy="21"
-                  rx="2.1"
-                  ry="1.55"
+                  cx="36.3"
+                  cy="23.6"
+                  rx="3.3"
+                  ry="2.18"
                   fill="#3d2416"
                   opacity="0.80"
                 />
-                {/* Paint cakes */}
-                {/* YELLOW - bright */}
-                <circle cx="10.8" cy="15.5" r="1.32" fill="#FFEB3B" stroke="#fffde7" strokeWidth="0.22"/>
-                {/* BLUE - saturated */}
-                <circle cx="15.0" cy="10.7" r="1.28" fill="#2196F3" stroke="#bbdeff" strokeWidth="0.18"/>
-                {/* PINK - vibrant */}
-                <circle cx="12.7" cy="19.3" r="1.12" fill="#FF4081" stroke="#ffdcef" strokeWidth="0.20"/>
-                {/* GREEN - vivid */}
-                <circle cx="20.6" cy="14.2" r="1.28" fill="#3DDC97" stroke="#e5fff3" strokeWidth="0.15"/>
-                {/* PURPLE - punchy accent */}
-                <circle cx="19" cy="18.5" r="1.05" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.14"/>
-                {/* Subtle light reflection for 3D effect, use lighter brown/white with reduced opacity */}
+                {/* YELLOW - placed top left */}
+                <ellipse cx="14.2" cy="8.9" rx="2" ry="1.33" fill="#FFEB3B" stroke="#fffde7" strokeWidth="0.32"/>
+                {/* BLUE - placed upper mid */}
+                <ellipse cx="20.8" cy="6.8" rx="1.6" ry="1.05" fill="#2196F3" stroke="#bbdeff" strokeWidth="0.24"/>
+                {/* PINK - lower left */}
+                <ellipse cx="11.4" cy="13.8" rx="1.56" ry="1.0" fill="#FF4081" stroke="#ffdcef" strokeWidth="0.24"/>
+                {/* GREEN - lower mid */}
+                <ellipse cx="27.2" cy="10.6" rx="1.45" ry="1.01" fill="#3DDC97" stroke="#e5fff3" strokeWidth="0.18"/>
+                {/* PURPLE - lower right */}
+                <ellipse cx="31.2" cy="17.9" rx="1.3" ry="0.91" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.18"/>
+                {/* Modern light reflection */}
                 <ellipse
-                  cx="13.8"
-                  cy="8.3"
-                  rx="2.4"
-                  ry="0.61"
+                  cx="22.5"
+                  cy="4.6"
+                  rx="4.5"
+                  ry="1.1"
                   fill="#fff"
-                  opacity="0.11"
-                  transform="rotate(-9 13.8 8.3)"
+                  opacity="0.13"
+                  transform="rotate(-14 22.5 4.6)"
                 />
               </svg>
             </span>
