@@ -45,7 +45,7 @@ body {
 
 /* Navigation Bar */
 .artfusion-navbar {
-  background: rgba(0,0,0,0.86);
+  background: #232323;
   padding: 0;
   border-bottom: 1px solid var(--border-color);
   position: fixed;
@@ -61,6 +61,7 @@ body {
   width: 100%;
   padding-left: 6px;
   padding-right: 6px;
+  background: transparent;
 }
 .artfusion-logo {
   font-size: 1.03rem; /* Reduced from 1.40rem */
