@@ -381,9 +381,11 @@ body {
 .artfusion-lesson-card .btn-small {
   font-size: 0.95rem;
   padding: 8px 18px;
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #fff;
-  opacity: 0.85;
+  opacity: 0.93;
+  border: none;
+  box-shadow: 0 2px 8px 0 #FF70A680;
 }
 
 /* --- AI Art Assistant --- */
