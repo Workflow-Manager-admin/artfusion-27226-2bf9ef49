@@ -11,9 +11,15 @@
   --border-color: rgba(255, 255, 255, 0.1);
 
   /* ArtFusion-specific */
-  --ombre-gradient: linear-gradient(120deg, #000000 0%, #434343 60%, #24292F 100%);
-  /* Modern multi-color background with a vivid linear gradient of pink, purple, blue */
-  --main-gradient-bg: linear-gradient(120deg, #ff61c6 0%, #a259ff 45%, #5e8fff 100%);
+  --ombre-gradient: linear-gradient(120deg, #000000 0%, #23232a 60%, #1a1a1a 100%);
+  /* Subtle multi-color background: gentle pink, purple, blue with alpha on a dark base for a soft tint effect */
+  --main-gradient-bg: 
+    linear-gradient(120deg, 
+      rgba(255,97,198, 0.09) 0%,   /* soft pink tone */
+      rgba(162,89,255, 0.13) 48%,  /* muted purple midstop */
+      rgba(94,143,255, 0.11) 100%  /* soft blue */
+    ),
+    #181821; /* nearly black base for blending */
 }
 
 
