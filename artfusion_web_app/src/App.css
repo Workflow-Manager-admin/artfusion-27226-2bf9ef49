@@ -55,12 +55,13 @@ body {
   top: 0; left: 0; width: 100vw; height: 110vh;
   z-index: 0;
   background: var(--main-gradient-bg);
-  opacity: 0.93;
+  opacity: 0.55; /* much lower opacity for a subtle effect */
   pointer-events: none;
   transition: background 0.6s cubic-bezier(.45,1,.6,1.01);
   will-change: background;
   /* softly blur for modern look */
-  filter: blur(0.5px);
+  filter: blur(1.2px);
+  /* The subtle overlay preserves dark contrast for the UI */
 }
 
 /* Navigation Bar */
