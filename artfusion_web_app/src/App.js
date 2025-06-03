@@ -220,14 +220,20 @@ function UserGallerySection() {
 // PUBLIC_INTERFACE
 function ResourceLibrarySection() {
   return (
-    <section className="artfusion-section artfusion-resources">
-      <h2>
-        <span role="img" aria-label="Books">📚</span> Resource Library
-      </h2>
+    <section className="artfusion-section artfusion-resources" aria-labelledby="resources-heading">
+      <h2 id="resources-heading" className="visually-hidden">Resource Library</h2>
+      <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
+        <span role="img" aria-label="Books" style={{ fontSize: "1.35em" }}>📚</span>
+        <span style={{
+          color: "var(--accent)",
+          fontSize: "2.1rem",
+          fontWeight: 800
+        }}>Resource Library</span>
+      </header>
       <p>
-        Curated art resources, references, and downloadable materials to support your artistic journey.
+        Curated <b>art resources</b>, references, and downloadable materials to support your artistic journey.
       </p>
-      <ul className="artfusion-resource-list">
+      <ul className="artfusion-resource-list" role="list">
         <li>
           <a href="https://www.artstation.com/learning" target="_blank" rel="noopener noreferrer">
             ArtStation Learning <span className="resource-chip">Video</span>
