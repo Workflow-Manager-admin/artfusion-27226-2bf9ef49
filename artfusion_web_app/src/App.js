@@ -225,7 +225,7 @@ function ArtSPlusMainContainer() {
                   <span aria-hidden="true" style={{ marginRight: 6 }}>
                     {section.icon}
                   </span>
-                  <span>{section.label}</span>
+                  <span className="artfusion-nav-tab-label">{section.label}</span>
                   {/* Animated accent border */}
                   <span
                     className="artfusion-animated-accent"
@@ -376,15 +376,7 @@ function InteractiveLessonsSection() {
           aria-label="Palette"
           style={{ fontSize: "1.7em" }}
         >🎨</span>
-        <span style={{
-          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-          fontSize: "2.1rem",
-          fontWeight: 800,
-          letterSpacing: 1,
-        }}>
+        <span className="artsplus-section-title">
           Interactive Art Lessons
         </span>
       </header>
@@ -525,14 +517,7 @@ function AIArtAssistantSection() {
       <h2 id="ai-assistant-heading" className="visually-hidden">AI Art Assistant</h2>
       <header style={{ marginBottom: 10, display: "flex", gap: 14, alignItems: "center" }}>
         <span role="img" aria-label="Robot" style={{ fontSize: "1.4em" }}>🤖</span>
-        <span style={{
-          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-          fontSize: "2.1rem",
-          fontWeight: 800
-        }}>AI Art Assistant</span>
+        <span className="artsplus-section-title">AI Art Assistant</span>
       </header>
       <p>
         Chat with our AI for instant artistic feedback, spark new ideas,
@@ -622,14 +607,7 @@ function UserGallerySection() {
       <h2 id="gallery-heading" className="visually-hidden">User Gallery</h2>
       <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
         <span role="img" aria-label="Gallery" style={{ fontSize: "1.4em" }}>🖼️</span>
-        <span style={{
-          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-          fontSize: "2.1rem",
-          fontWeight: 800
-        }}>User Gallery</span>
+        <span className="artsplus-section-title">User Gallery</span>
       </header>
       <p>
         Upload and showcase your <b>artwork</b>! Browse, like, and comment on other artists' creations.
@@ -665,14 +643,7 @@ function ResourceLibrarySection() {
       <h2 id="resources-heading" className="visually-hidden">Resource Library</h2>
       <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
         <span role="img" aria-label="Books" style={{ fontSize: "1.35em" }}>📚</span>
-        <span style={{
-          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-          fontSize: "2.1rem",
-          fontWeight: 800
-        }}>Resource Library</span>
+        <span className="artsplus-section-title">Resource Library</span>
       </header>
       <p>
         Curated <b>art resources</b>, references, and downloadable materials to support your artistic journey.
