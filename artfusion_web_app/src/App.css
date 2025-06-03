@@ -662,17 +662,17 @@ body {
 .btn, .btn-large {
   background: var(--accent-gradient);
   color: #fff !important;
-  border: none;
-  border-radius: 10px;
+  border: none !important;
+  border-radius: 0 !important;
   font-weight: 700;
   letter-spacing: 0.02em;
   transition: background 0.17s, box-shadow 0.17s, color 0.13s;
-  box-shadow: 0 3px 14px 0 #A259FF33;
+  box-shadow: none !important;
   cursor: pointer;
 }
 .btn:hover, .btn-large:hover, .btn:focus, .btn-large:focus {
   filter: brightness(1.09);
-  box-shadow: 0 4px 16px 0 #FF70A6cc, 0 0 4px #56CCF2bb;
+  box-shadow: none !important;
 }
 
 /* ======= Preserve Template Utility Styles ======= */
