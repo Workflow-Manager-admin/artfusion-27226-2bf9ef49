@@ -636,7 +636,8 @@ body {
   border-radius: 10px;
   padding: 2px 9px;
   margin-left: 6px;
-  box-shadow: 0 2px 6px #A259FF40;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* --- Footer --- */
@@ -684,7 +685,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.23s cubic-bezier(.19,1,.22,1);
-  background: var(--accent-gradient);
+  background: var(--accent-gradient) !important;
   color: #fff;
   padding: 7px 15px 7px 15px;
   border-radius: 8px;
@@ -694,7 +695,8 @@ body {
   min-width: 80px;
   max-width: 220px;
   white-space: nowrap;
-  box-shadow: 0 4px 22px 0 rgba(162,89,255,0.13);
+  box-shadow: none !important;
+  border: none !important;
   z-index: 108;
 }
 .artsplus-tooltip.visible {
