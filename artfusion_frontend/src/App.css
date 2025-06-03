@@ -28,20 +28,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: none;
 }
 
 .navbar {
-  background-color: var(--base-dark);
+  background: var(--nav-bg-gradient);
   padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--accent);
   position: fixed;
   top: 0;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
+  box-shadow: 0 2px 16px 0 rgba(22,22,22,0.095);
 }
 
 .logo {
