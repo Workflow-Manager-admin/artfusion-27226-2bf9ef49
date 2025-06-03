@@ -465,8 +465,8 @@ body {
 }
 
 /* Extra styling for description below lesson title */
-.lesson-desc-text {
-  color: #fff;
+.lesson-desc-text, .lesson-desc-text * {
+  color: #fff !important;
   font-size: 1.01rem;
   margin-top: 0.45em;
   margin-left: 2px;
@@ -482,6 +482,12 @@ body {
   box-shadow: none !important;
   display: block;
   max-width: 97%;
+  /* Ensure text is always visible regardless of parent */
+}
+
+.artfusion-lesson-videolabel {
+  /* Remove any color style that would affect children directly */
+  color: initial !important;
 }
 
 @media (max-width: 1150px) {
