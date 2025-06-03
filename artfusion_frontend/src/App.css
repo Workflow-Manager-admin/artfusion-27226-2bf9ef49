@@ -76,23 +76,27 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  background: none;
 }
 
 .subtitle {
-  color: var(--base-light);
-  font-weight: 500;
-  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 0.4px;
 }
 
 .title {
   font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.19;
   margin: 0;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.11rem;
   line-height: 1.5;
   color: var(--text-secondary);
   max-width: 600px;
