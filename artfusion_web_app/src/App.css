@@ -112,7 +112,7 @@ body {
   border-radius: 2px;
   background: linear-gradient(90deg, var(--accent) 55%, transparent 100%);
   opacity: 0.94;
-  box-shadow: 0 1px 7px 0 var(--accent), 0 0 2px #1a1a1a inset;
+  box-shadow: 0 1px 7px 0 #A259FF, 0 0 2px #1a1a1a inset;
   animation: artfusion-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
 }
 
@@ -247,8 +247,8 @@ body {
   background: linear-gradient(115deg, #1e2b47 60%, #24292fdd 100%);
 }
 .artfusion-lesson-level-advanced {
-  color: #FF6F61;
-  background: linear-gradient(112deg, #44101b 70%, #24292fee 100%);
+  color: #A259FF;
+  background: linear-gradient(112deg, #3d185e 70%, #24292fee 100%);
 }
 @media (max-width: 1150px) {
   .artfusion-lessons-videogrid {
@@ -339,7 +339,7 @@ body {
   align-self: flex-start;
 }
 .artfusion-ai-bubble-out {
-  background: rgba(255,111,97, 0.14);
+  background: rgba(162,89,255, 0.16);
   color: var(--accent);
   align-self: flex-end;
 }
