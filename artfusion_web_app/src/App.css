@@ -251,6 +251,8 @@ body {
   align-items: stretch;
   box-sizing: border-box;
   padding: 0;
+  background: none; /* Ensure no background color to prevent overlay box */
+  box-shadow: none;
 }
 
 /* Remove .container from content area, keep only for nav */
