@@ -218,6 +218,8 @@ function ArtSPlusMainContainer() {
                     outlineOffset: 2,
                     position: "relative",
                     transition: "outline 0.18s, box-shadow 0.2s",
+                    background: "none",
+                    boxShadow: "none"
                   }}
                   id={`navbtn-${section.key}`}
                   data-feature={section.key}
@@ -267,6 +269,7 @@ function ArtSPlusMainContainer() {
               boxShadow: '0 4px 18px 0 rgba(162,89,255,0.16)',
               cursor: "pointer",
               animation: "artsplus-fade-up-in 0.9s cubic-bezier(.35,1.11,.54,.99)",
+              backgroundClip: "padding-box"
             }}
             tabIndex={0}
             role="dialog"
@@ -291,7 +294,8 @@ function ArtSPlusMainContainer() {
           minHeight: 0,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-start"
+          justifyContent: "flex-start",
+          background: "none"
       }}>
         <main
           className="artsplus-main"
@@ -303,7 +307,8 @@ function ArtSPlusMainContainer() {
             minHeight: 0,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-start"
+            justifyContent: "flex-start",
+            background: "none"
           }}
           aria-live="polite"
           tabIndex={-1}
@@ -512,7 +517,7 @@ function AIArtAssistantSection() {
     <section
       className="artfusion-section artfusion-ai-assistant"
       aria-labelledby="ai-assistant-heading"
-      style={{ minHeight: 333, display: "flex", flexDirection: "column", justifyContent: "flex-start" }}
+      style={{ minHeight: 333, display: "flex", flexDirection: "column", justifyContent: "flex-start"}}
     >
       <h2 id="ai-assistant-heading" className="visually-hidden">AI Art Assistant</h2>
       <header style={{ marginBottom: 10, display: "flex", gap: 14, alignItems: "center" }}>
@@ -527,7 +532,7 @@ function AIArtAssistantSection() {
         className="artfusion-ai-widget"
         aria-label="AI chat"
         role="region"
-        style={{ marginBottom: 8 }}
+        style={{ marginBottom: 8, background: "none", boxShadow: "none" }}
       >
         <div
           className="artfusion-ai-chat"
@@ -561,7 +566,7 @@ function AIArtAssistantSection() {
             aria-label="Type your art-related question"
             autoComplete="off"
             disabled={isLoading}
-            style={{ flex: 1, marginBottom: 0 }}
+            style={{ flex: 1, marginBottom: 0, background: "none", boxShadow: "none"}}
           />
           <button
             className="btn"
@@ -723,8 +728,8 @@ function GalleryCard({ username, imgSrc, title }) {
       tabIndex={0}
       aria-label={`Artwork: ${title} by @${username}`}
       style={{
-        boxShadow: "0 2px 13px 0 rgba(30,31,50,0.11)",
-        background: "rgba(33,37,48,0.95)"
+        boxShadow: "0 1px 5px 0 rgba(30,31,50,0.08)",
+        background: "rgba(33,37,48,0.92)"
       }}
     >
       <div className="gallery-img"
@@ -756,6 +761,8 @@ function AssistantBubble({ inout, text }) {
       style={{
         fontWeight: inout === "in" ? 500 : 400,
         fontStyle: inout === "in" ? "normal" : "italic",
+        background: "none",
+        boxShadow: "none"
       }}
     >
       {text}
