@@ -378,7 +378,11 @@ function InteractiveLessonsSection() {
           style={{ fontSize: "1.7em" }}
         >🎨</span>
         <span style={{
-          color: "var(--accent)",
+          /* Gradient accent text */
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
           fontSize: "2.1rem",
           fontWeight: 800,
           letterSpacing: 1
