@@ -683,13 +683,13 @@ function LessonCard({ title, level, color, desc }) {
       tabIndex={0}
       aria-label={`${title}, ${level} level`}
       style={{
-        borderLeft: `6px solid transparent`,
-        background: "rgba(32,36,50,0.88)",
-        boxShadow: "0 3px 14px 0 rgba(25,35,45,0.13)",
+        borderLeft: "none",
+        background: "none",
+        boxShadow: "none",
         minHeight: 152,
         marginTop: 6,
         backgroundImage: "none",
-        borderImage: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2) 1"
+        borderImage: "none"
       }}
     >
       <div className="lesson-title" style={{ marginBottom: 2 }}>{title}</div>
@@ -728,15 +728,16 @@ function GalleryCard({ username, imgSrc, title }) {
       tabIndex={0}
       aria-label={`Artwork: ${title} by @${username}`}
       style={{
-        boxShadow: "0 1px 5px 0 rgba(30,31,50,0.08)",
-        background: "rgba(33,37,48,0.92)"
+        boxShadow: "none",
+        background: "none"
       }}
     >
       <div className="gallery-img"
         style={{
           backgroundImage: `url(${imgSrc})`,
-          borderBottom: "1px solid var(--border-color)",
-          minHeight: 145
+          borderBottom: "none",
+          minHeight: 145,
+          boxShadow: "none"
         }}
         aria-hidden="true"
       ></div>
