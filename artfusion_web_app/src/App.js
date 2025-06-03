@@ -116,16 +116,16 @@ function ArtSPlusMainContainer() {
   }, [fadeKey]);
 
   return (
-    <div className="artfusion-app" role="main">
+    <div className="artsplus-app" role="main">
       {/* Navigation Bar */}
       <nav
-        className="navbar artfusion-navbar"
+        className="navbar artsplus-navbar"
         aria-label="Main navigation"
         ref={navbarRef}
         tabIndex={-1}
       >
-        <div className="artfusion-navbar-inner container">
-          <div className="logo artfusion-logo" role="heading" aria-level={1} tabIndex={0}>
+        <div className="artsplus-navbar-inner container">
+          <div className="logo artsplus-logo" role="heading" aria-level={1} tabIndex={0}>
             {/* Art Palette SVG icon replaces star logo */}
             <span className="logo-symbol" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', fontSize: '1.25em', lineHeight: '1.1' }}>
               <svg
@@ -166,9 +166,9 @@ function ArtSPlusMainContainer() {
                 </defs>
               </svg>
             </span>
-            ArtFusion
+            ArtS+
           </div>
-          <div className="artfusion-navlinks" role="tablist" aria-label="Main Sections">
+          <div className="artsplus-navlinks" role="tablist" aria-label="Main Sections">
             {navSections.map((section, i) => (
               <Tooltip
                 key={section.key}
