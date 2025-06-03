@@ -100,7 +100,7 @@ function ArtSPlusMainContainer() {
     setOnboarding(false);
     setNavTooltip(null);
     try {
-      window.localStorage.setItem('artfusion_seen_onboarding', 'yes');
+      window.localStorage.setItem('artsplus_seen_onboarding', 'yes');
     } catch { /* ignore */ }
   };
 

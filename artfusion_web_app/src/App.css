@@ -489,17 +489,17 @@ body {
 
 /* ======= Preserve Template Utility Styles ======= */
 
-.artfusion-tooltip-wrapper {
+.artsplus-tooltip-wrapper {
   position: relative;
   display: inline-flex;
 }
-.artfusion-tooltip {
+.artsplus-tooltip {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.23s cubic-bezier(.19,1,.22,1);
   background: var(--accent);
   color: #fff;
-  padding: 6px 15px;
+  padding: 7px 15px 7px 15px;
   border-radius: 8px;
   font-size: 0.98rem;
   font-weight: 600;
@@ -510,18 +510,18 @@ body {
   box-shadow: 0 4px 22px 0 rgba(162,89,255,0.13);
   z-index: 108;
 }
-.artfusion-tooltip.visible {
+.artsplus-tooltip.visible {
   opacity: 1;
   pointer-events: auto;
 }
-.artfusion-tooltip-bottom {
+.artsplus-tooltip-bottom {
   top: 110%;
 }
-.artfusion-tooltip-top {
+.artsplus-tooltip-top {
   bottom: 110%;
 }
 @media (max-width: 610px) {
-  .artfusion-tooltip {
+  .artsplus-tooltip {
     font-size: 0.93rem;
     padding: 5px 10px;
     left: 35% !important;
@@ -529,15 +529,15 @@ body {
 }
 
 /* Onboarding nudge/fade-in */
-.artfusion-onboarding-nudge {
-  animation: artfusion-fade-up-in 0.8s cubic-bezier(.26,1.08,.46,.96);
+.artsplus-onboarding-nudge {
+  animation: artsplus-fade-up-in 0.8s cubic-bezier(.26,1.08,.46,.96);
 }
 /* Subtle fade-in and up animation for sections */
-@keyframes artfusion-fade-in {
+@keyframes artsplus-fade-in {
   from { opacity: 0; transform: translateY(24px);}
   to   { opacity: 1; transform: translateY(0);}
 }
-@keyframes artfusion-fade-up-in {
+@keyframes artsplus-fade-up-in {
   from {
     opacity: 0;
     transform: translateY(40px) scale(0.97);
@@ -549,11 +549,11 @@ body {
 }
 
 /* Animated accent border for nav */
-.artfusion-animated-accent {
+.artsplus-animated-accent {
   will-change: opacity;
-  animation: artfusion-accent-animate 1s cubic-bezier(.31,1.12,.49,.97);
+  animation: artsplus-accent-animate 1s cubic-bezier(.31,1.12,.49,.97);
 }
-@keyframes artfusion-accent-animate {
+@keyframes artsplus-accent-animate {
   from {
     opacity: 0;
     width: 30%;
@@ -567,103 +567,11 @@ body {
 }
 
 /* Slide-down effect for nav onboarding tooltip only */
-.artfusion-tooltip.visible.artfusion-tooltip-bottom {
-  animation: artfusion-fade-up-in 0.6s cubic-bezier(.31,1.01,.45,1.09) both;
+.artsplus-tooltip.visible.artsplus-tooltip-bottom {
+  animation: artsplus-fade-up-in 0.6s cubic-bezier(.31,1.01,.45,1.09) both;
   z-index: 107;
 }
 /* Onboarding nudge shadow color update is handled via inline styles in JS */
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.navbar {
-  background-color: #232323;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  box-sizing: border-box;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-color);
-}
-
-.logo-symbol {
-  color: var(--accent);
-}
-
-.hero {
-  padding-top: 120px;
-  padding-bottom: 64px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.subtitle {
-  color: var(--base-light);
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.description {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 16px;
-}
-
-.btn {
-  background-color: var(--base-light);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-/* Navbar button adjustments for dark theme */
-.artfusion-nav-btn, 
-.navbar .btn {
-  color: var(--text-color);
-  background: none;
-}
-
-.btn:hover {
-  background-color: #A259FF;
-}
-
-.btn-large {
-  padding: 12px 24px;
-  font-size: 1.1rem;
-}
 
 /* Accessibility utility: visually hidden (screen-reader only) */
 .visually-hidden {
@@ -679,10 +587,10 @@ body {
 }
 
 /* Show a focus ring for accessibility, but only when using keyboard ("focus-visible") */
-.artfusion-nav-btn:focus-visible,
-.artfusion-footer:focus-visible,
-.artfusion-section:focus-visible,
-.artfusion-navbar:focus-visible {
+.artsplus-nav-btn:focus-visible,
+.artsplus-footer:focus-visible,
+.artsplus-section:focus-visible,
+.artsplus-navbar:focus-visible {
   outline: 3px solid var(--base-light);
   outline-offset: 3px;
   background: rgba(0,255,255,0.05);
