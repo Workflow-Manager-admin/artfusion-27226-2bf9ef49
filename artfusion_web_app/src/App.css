@@ -509,24 +509,23 @@ body {
 }
 .artfusion-ai-bubble {
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 0 !important;
   max-width: 95%;
   width: fit-content;
-  background: #232a2d;
+  background: none !important;
   color: #fff;
   margin-bottom: 2px;
   margin-left: 0;
-  box-shadow: none; /* Remove any box or white-ish background artifact */
+  box-shadow: none !important;
 }
 .artfusion-ai-bubble-in {
-  background: linear-gradient(120deg, #23272e 30%, #434343 100%);
+  background: none !important;
   color: #fff;
   align-self: flex-start;
 }
 .artfusion-ai-bubble-out {
-  /* Use a subtle gradient without full transparency for better contrast */
-  background: linear-gradient(90deg, #a259ff33 10%, #56ccf230 100%);
-  background-blend-mode: darken;
+  background: none !important;
+  background-blend-mode: normal;
   color: #fff;
   background-clip: border-box;
   -webkit-background-clip: border-box;
@@ -538,14 +537,15 @@ body {
 }
 .artfusion-ai-input {
   padding: 9px 13px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
+  border-radius: 0 !important;
+  border: none !important;
   width: 100%;
   margin-top: 2px;
   font-size: 1.05rem;
-  background: #22282b;
+  background: none !important;
   color: #fff;
-  outline: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
 .artfusion-ai-input:disabled {
   background: #242a2d;
