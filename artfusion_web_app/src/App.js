@@ -126,7 +126,7 @@ function ArtFusionMainContainer() {
       >
         <div className="artfusion-navbar-inner container">
           <div className="logo artfusion-logo" role="heading" aria-level={1} tabIndex={0}>
-            <span className="logo-symbol" style={{ color: 'var(--accent)', fontSize: '1.4em' }} aria-hidden="true">*</span>
+            <span className="logo-symbol" style={{ color: 'var(--accent)', fontSize: '1.1em', lineHeight: '1.1' }} aria-hidden="true">*</span>
             ArtFusion
           </div>
           <div className="artfusion-navlinks" role="tablist" aria-label="Main Sections">
