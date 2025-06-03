@@ -268,10 +268,9 @@ body {
 /* Section fit, less margin, less padding for edge-to-edge */
 .artsplus-section,
 .artfusion-section {
-  /* Ensure no white, only semi-transparent dark (to prevent "box" look): */
-  background: rgba(18,20,28,0.76);
-  box-shadow: 0 2px 24px 0 rgba(25,25,35,0.10);
-  border-radius: 16px;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
   padding: 28px 16px 28px 16px;
   margin: 18px 0 18px 0;
   position:relative;
@@ -300,9 +299,9 @@ body {
 }
 
 .artsplus-section {
-  background: rgba(23,26,32,0.90);
-  box-shadow: 0 4px 42px 0 rgba(25,25,35,0.12);
-  border-radius: 16px;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
   padding: 36px 28px;
   margin-bottom: 36px;
   position:relative;
