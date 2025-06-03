@@ -68,14 +68,13 @@ body {
 
 /* Navigation Bar */
 .artsplus-navbar {
-  background: #232323;
+  background: none !important;
   padding: 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: none;
   position: fixed;
   top: 0; left: 0; width: 100vw;
   z-index: 101;
-  /* Remove/minimize strong box shadow for a subtler look: */
-  box-shadow: 0 1px 4px 0 rgba(16,18,30,0.10);
+  box-shadow: none;
   min-height: 48px;
 }
 
