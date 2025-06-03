@@ -1,6 +1,32 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
+// Tooltip and animated transitions utility (custom, no dependencies)
+function Tooltip({ children, text, position = "top", visible }) {
+  // Lightweight tooltip, for accessibility/onboarding. See usage in nav and discoverability.
+  return (
+    <span className="artfusion-tooltip-wrapper" style={{ position: "relative", display: "inline-flex" }}>
+      {children}
+      <span
+        role="tooltip"
+        aria-hidden={!visible}
+        className={`artfusion-tooltip${visible ? " visible" : ""} artfusion-tooltip-${position}`}
+        style={{
+          position: "absolute",
+          [position === "top" ? "bottom" : "top"]: "110%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 104,
+          whiteSpace: "nowrap",
+          minWidth: 90,
+        }}
+      >
+        {text}
+      </span>
+    </span>
+  );
+}
+
 // PUBLIC_INTERFACE
 function ArtFusionMainContainer() {
   // For tab switching
