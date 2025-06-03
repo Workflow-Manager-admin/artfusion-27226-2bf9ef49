@@ -5,7 +5,7 @@
   --base-dark: #00008b;
   --primary: #000000;
   --secondary: #434343;
-  --accent: #FF6F61;
+  --accent: #A259FF; /* Updated from #FF6F61 to purple */
   --text-color: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
