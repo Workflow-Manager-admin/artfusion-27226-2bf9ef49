@@ -660,7 +660,12 @@ function UserGallerySection() {
         <GalleryCard username="colorcarefree" imgSrc="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&q=80" title="Chromatic" />
       </div>
       <div className="artfusion-upload-hint">
-        <button className="btn btn-large" style={{ background: "var(--accent)", opacity: 0.85 }} disabled>
+        <button className="btn btn-large" style={{
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          opacity: 0.89,
+          color: "#fff",
+          border: "none"
+        }} disabled>
           Upload Artwork (Demo)
         </button>
       </div>
