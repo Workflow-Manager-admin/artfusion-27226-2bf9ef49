@@ -256,29 +256,76 @@ function ResourceLibrarySection() {
 
 // --- Demo Subcomponents ---
 
-function LessonCard({ title, level, color }) {
+function LessonCard({ title, level, color, desc }) {
   return (
-    <div className="artfusion-lesson-card" style={{
-      borderLeft: `6px solid ${color}`,
-      background: "rgba(32,36,50,0.85)"
-    }}>
-      <div className="lesson-title">{title}</div>
-      <div className="lesson-level">{level}</div>
-      <button className="btn btn-small" disabled>Start</button>
-    </div>
+    <article
+      className="artfusion-lesson-card"
+      tabIndex={0}
+      aria-label={`${title}, ${level} level`}
+      style={{
+        borderLeft: `6px solid ${color}`,
+        background: "rgba(32,36,50,0.88)",
+        boxShadow: "0 3px 14px 0 rgba(25,35,45,0.13)",
+        minHeight: 152,
+        marginTop: 6
+      }}
+    >
+      <div className="lesson-title" style={{ marginBottom: 2 }}>{title}</div>
+      <span className="lesson-level" style={{ fontSize: "1.03rem" }}>{level}</span>
+      <div style={{
+        color: "var(--text-secondary)",
+        fontSize: "0.98rem",
+        marginBottom: 11,
+        marginTop: 7,
+      }}>{desc}</div>
+      <button className="btn btn-small" disabled style={{ background: color, color: "#fff", marginTop: "auto", opacity: 0.9 }}>Start</button>
+    </article>
   );
 }
 
 function GalleryCard({ username, imgSrc, title }) {
   return (
-    <div className="artfusion-gallery-card">
-      <div className="gallery-img" style={{
-        backgroundImage: `url(${imgSrc})`
-      }}></div>
+    <article
+      className="artfusion-gallery-card"
+      tabIndex={0}
+      aria-label={`Artwork: ${title} by @${username}`}
+      style={{
+        boxShadow: "0 2px 13px 0 rgba(30,31,50,0.11)",
+        background: "rgba(33,37,48,0.95)"
+      }}
+    >
+      <div className="gallery-img"
+        style={{
+          backgroundImage: `url(${imgSrc})`,
+          borderBottom: "1px solid var(--border-color)",
+          minHeight: 145
+        }}
+        aria-hidden="true"
+      ></div>
       <div className="gallery-info">
-        <div>{title}</div>
+        <div style={{ fontWeight: 600, fontSize: "1.09rem", marginBottom: 3 }}>{title}</div>
         <small>by <b>@{username}</b></small>
       </div>
+    </article>
+  );
+}
+
+// AI Assistant message bubble with direction and accessibility
+function AssistantBubble({ inout, text }) {
+  return (
+    <div
+      className={
+        "artfusion-ai-bubble artfusion-ai-bubble-" + (inout === "out" ? "out" : "in")
+      }
+      role="status"
+      aria-live="polite"
+      tabIndex={0}
+      style={{
+        fontWeight: inout === "in" ? 500 : 400,
+        fontStyle: inout === "in" ? "normal" : "italic",
+      }}
+    >
+      {text}
     </div>
   );
 }
