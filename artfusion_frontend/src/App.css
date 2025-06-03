@@ -77,6 +77,13 @@ body {
   box-sizing: border-box;
 }
 
+.main-content {
+  padding-top: 82px;
+  flex: 1;
+  min-height: calc(100vh - 62px);
+  background: none;
+}
+
 .hero {
   padding-top: 120px;
   padding-bottom: 64px;
@@ -140,27 +147,60 @@ body {
   font-size: 1.11rem;
 }
 
-/* NavLink accent for consistency */
+.nav-links {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
 .nav-link {
+  display: inline-block;
+  position: relative;
   color: #fff;
   text-decoration: none;
-  padding: 8px 0;
+  padding: 6px 9px 8px 10px;
   margin: 0 8px;
-  font-size: 1rem;
+  font-size: 1.04rem;
   font-weight: 500;
+  letter-spacing: 0.07em;
   border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-bottom 0.2s;
+  border-radius: 2px 2px 0 0;
+  transition: color 0.20s, border-bottom 0.19s, background 0.18s;
+  background: none;
 }
+
 .nav-link:visited {
   color: #fff;
 }
-.nav-link:hover {
+
+.nav-link:hover,
+.nav-link:focus-visible {
   color: var(--accent);
   border-bottom: 2px solid var(--accent);
+  background: rgba(255,111,97,0.04);
+  outline: none;
 }
+
 .active-nav-link {
   color: var(--accent) !important;
-  border-bottom: 2px solid var(--accent) !important;
+  border-bottom: 2.3px solid var(--accent) !important;
+  background: rgba(255,111,97,0.09) !important;
+}
+
+@media (max-width: 700px) {
+  .navbar,
+  .nav-inner {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .logo {
+    font-size: 1.11rem;
+  }
+  .nav-link {
+    margin: 0 2px;
+    font-size: 0.95rem;
+    padding: 6px 3px 7px 5px;
+  }
 }
 
 /* Feature container for immersive look */
