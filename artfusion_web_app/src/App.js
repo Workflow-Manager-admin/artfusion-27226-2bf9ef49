@@ -3,7 +3,6 @@ import './App.css';
 
 // Tooltip and animated transitions utility (custom, no dependencies)
 function Tooltip({ children, text, position = "top", visible }) {
-  // Lightweight tooltip, for accessibility/onboarding. See usage in nav and discoverability.
   return (
     <span className="artfusion-tooltip-wrapper" style={{ position: "relative", display: "inline-flex" }}>
       {children}
@@ -29,15 +28,10 @@ function Tooltip({ children, text, position = "top", visible }) {
 
 /**
  * PUBLIC_INTERFACE
- * Refined Main Container for ArtS+:
- * - Animations (fade, slide-in, border accent hover/entry)
- * - ARIA improvements, focus trap for nav, more keyboard support
- * - Tooltips for nav (onboarding + always-on)
- * - Onboarding hint at first session
- * - Discoverability: assistant/lessons nudge
+ * Refined Main Container for ArtS+ with gradient accent theme.
  */
 function ArtSPlusMainContainer() {
-  // For tab switching & onboarding state
+  // Section state and onboarding state
   const [activeSection, setActiveSection] = useState('lessons');
   const [onboarding, setOnboarding] = useState(() => {
     try {
@@ -47,11 +41,10 @@ function ArtSPlusMainContainer() {
     }
   });
   const [navTooltip, setNavTooltip] = useState(null);
-  const [focusIdx, setFocusIdx] = useState(-1); // for keyboard nav highlighting
+  const [focusIdx, setFocusIdx] = useState(-1);
   const navbarRef = useRef();
   const contentRef = useRef();
 
-  // For ARIA & accessibility
   const navSections = [
     { key: 'lessons', label: 'Lessons', icon: '🎨', aria: 'Interactive Art Lessons', onboarding: 'Explore interactive tutorials & skills!' },
     { key: 'assistant', label: 'AI Assistant', icon: '🤖', aria: 'AI Art Assistant', onboarding: 'Ask for help, tips, or critiques.' },
@@ -77,15 +70,12 @@ function ArtSPlusMainContainer() {
     }
   };
 
-  // Trap focus on nav if tabbing from menu for accessibility
   useEffect(() => {
     if (focusIdx >= 0) {
       const navBtns = navbarRef.current.querySelectorAll('.artfusion-nav-btn');
       if (navBtns[focusIdx]) navBtns[focusIdx].focus();
     }
   }, [focusIdx]);
-
-  // Onboarding state; after a short delay, show slight onboarding tooltip pointer
   useEffect(() => {
     if (onboarding) {
       const timer = setTimeout(() => setNavTooltip('lessons'), 800);
@@ -94,8 +84,6 @@ function ArtSPlusMainContainer() {
       setNavTooltip(null);
     }
   }, [onboarding]);
-
-  // After initial onboarding, mark as seen & stop showing onboarding nudge
   const dismissOnboarding = () => {
     setOnboarding(false);
     setNavTooltip(null);
@@ -103,11 +91,8 @@ function ArtSPlusMainContainer() {
       window.localStorage.setItem('artsplus_seen_onboarding', 'yes');
     } catch { /* ignore */ }
   };
-
-  // Fade/slide animation on section change
   const [fadeKey, setFadeKey] = useState(0);
   useEffect(() => { setFadeKey((k) => k + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection]);
-  // for ARIA
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.setAttribute('tabindex', -1);
@@ -130,9 +115,7 @@ function ArtSPlusMainContainer() {
             role="heading"
             aria-level={1}
             tabIndex={0}
-            /* No style prop here: all text gradient, shadow, and weight handled by .artsplus-logo in App.css */
           >
-            {/* Custom SVG Art Palette - brown base with colored paint cakes */}
             <span
               className="logo-symbol"
               aria-hidden="true"
@@ -158,7 +141,6 @@ function ArtSPlusMainContainer() {
                 }}
                 aria-hidden="true"
               >
-                {/* Palette base: authentic classic oval with thumb hole */}
                 <path
                   d="M23,2
                   C34,2 42,9.5 42,17.2
@@ -174,7 +156,6 @@ function ArtSPlusMainContainer() {
                   strokeWidth="2.2"
                   opacity="0.98"
                 />
-                {/* Thumb hole */}
                 <ellipse
                   cx="36.3"
                   cy="23.6"
@@ -183,17 +164,12 @@ function ArtSPlusMainContainer() {
                   fill="#3d2416"
                   opacity="0.80"
                 />
-                {/* YELLOW - placed top left */}
                 <ellipse cx="14.2" cy="8.9" rx="2" ry="1.33" fill="#FFEB3B" stroke="#fffde7" strokeWidth="0.32"/>
-                {/* BLUE - placed upper mid */}
                 <ellipse cx="20.8" cy="6.8" rx="1.6" ry="1.05" fill="#2196F3" stroke="#bbdeff" strokeWidth="0.24"/>
-                {/* PINK - lower left */}
                 <ellipse cx="11.4" cy="13.8" rx="1.56" ry="1.0" fill="#FF4081" stroke="#ffdcef" strokeWidth="0.24"/>
-                {/* GREEN - lower mid */}
                 <ellipse cx="27.2" cy="10.6" rx="1.45" ry="1.01" fill="#3DDC97" stroke="#e5fff3" strokeWidth="0.18"/>
-                {/* PURPLE - lower right */}
+                {/* Gradient accent below */}
                 <ellipse cx="31.2" cy="17.9" rx="1.3" ry="0.91" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.18"/>
-                {/* Modern light reflection */}
                 <ellipse
                   cx="22.5"
                   cy="4.6"
@@ -235,7 +211,7 @@ function ArtSPlusMainContainer() {
                   onMouseEnter={() => setNavTooltip(section.key)}
                   onMouseLeave={() => setNavTooltip(null)}
                   style={{
-                    outline: activeSection === section.key ? '2px solid var(--accent)' : undefined,
+                    outline: activeSection === section.key ? '2px solid transparent' : undefined,
                     outlineOffset: 2,
                     position: "relative",
                     transition: "outline 0.18s, box-shadow 0.2s",
@@ -258,7 +234,7 @@ function ArtSPlusMainContainer() {
                       right: 0,
                       bottom: -3,
                       height: 3,
-                      background: "linear-gradient(90deg, #A259FF 60%, transparent 100%)",
+                      background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
                       borderRadius: 2,
                       opacity: 0.92,
                       boxShadow: "0 2px 8px 0 #A259FF",
@@ -270,7 +246,6 @@ function ArtSPlusMainContainer() {
             ))}
           </div>
         </div>
-        {/* Contextual onboarding nudge (for first-time users) */}
         {onboarding && (
           <div
             className="artsplus-onboarding-nudge"
@@ -280,7 +255,7 @@ function ArtSPlusMainContainer() {
               top: 70,
               transform: 'translateX(-50%)',
               zIndex: 200,
-              background: 'var(--accent)',
+              background: 'linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)',
               color: '#fff',
               padding: '9px 22px',
               borderRadius: 18,
@@ -307,10 +282,7 @@ function ArtSPlusMainContainer() {
         )}
       </nav>
 
-      {/* Ombre Gradient Background Layer */}
       <div className="artsplus-gradient-bg" aria-hidden="true"></div>
-
-      {/* Main Content with subtle fade-in */}
       <main
         className="artsplus-main container"
         ref={contentRef}
@@ -324,8 +296,6 @@ function ArtSPlusMainContainer() {
         {activeSection === 'gallery' && <UserGallerySection />}
         {activeSection === 'resources' && <ResourceLibrarySection />}
       </main>
-
-      {/* Footer */}
       <footer className="artsplus-footer" tabIndex={0}>
         <span>
           ArtS+ &copy; {new Date().getFullYear()} &ndash;
@@ -348,10 +318,9 @@ function ArtSPlusMainContainer() {
 
 /**
  * PUBLIC_INTERFACE
- * InteractiveLessonsSection: Displays a 4x4 grid of 16 art lesson videos (placeholders), matching ArtS+ modern theme.
+ * InteractiveLessonsSection: Art lessons section with accent gradient
  */
 function InteractiveLessonsSection() {
-  // Skill progression titles for each video lesson (4x4 grid)
   const lessonTitles = [
     "Beginner: Sketching Basics",
     "Beginner: Shapes & Forms",
@@ -370,14 +339,13 @@ function InteractiveLessonsSection() {
     "Advanced: Mixed Media",
     "Advanced: Creative Masterclass"
   ];
-  // Each lesson can also have a mapped skill level for accent styling if needed
   const lessonLevels = [
     "Beginner", "Beginner", "Beginner", "Beginner",
     "Novice", "Novice", "Novice", "Novice",
     "Intermediate", "Intermediate", "Intermediate", "Intermediate",
     "Advanced", "Advanced", "Advanced", "Advanced"
   ];
-  const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4"); // 1hr+ placeholder
+  const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4");
 
   return (
     <section className="artfusion-section artfusion-lessons" aria-labelledby="lessons-heading">
@@ -389,20 +357,19 @@ function InteractiveLessonsSection() {
           style={{ fontSize: "1.7em" }}
         >🎨</span>
         <span style={{
-          /* Gradient accent text */
           background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
           fontSize: "2.1rem",
           fontWeight: 800,
-          letterSpacing: 1
+          letterSpacing: 1,
         }}>
           Interactive Art Lessons
         </span>
       </header>
       <p>
-        16 immersive, hour-long lesson videos.<br/>
+        16 immersive, hour-long lesson videos.<br />
         <strong>Unlock your creative potential</strong> by following in-depth tutorials—accessible to all skill levels.
       </p>
       <div
@@ -436,7 +403,10 @@ function InteractiveLessonsSection() {
             <div
               className={`artfusion-lesson-videolabel artfusion-lesson-level-${lessonLevels[idx].toLowerCase()}`}
               style={{
-                color: "var(--accent)",
+                background: "linear-gradient(90deg, #FF70A6,#A259FF,#56CCF2)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
                 fontWeight: 700,
                 fontSize: "1.09rem",
                 letterSpacing: "0.5px",
@@ -470,10 +440,9 @@ function InteractiveLessonsSection() {
 
 /**
  * PUBLIC_INTERFACE
- * Functional AI Art Assistant Section with simulated AI chat and extensibility.
+ * AI Art Assistant Section: Accent gradient for headers and button.
  */
 function AIArtAssistantSection() {
-  // Simple chat state – can be replaced by an API connection later
   const [messages, setMessages] = React.useState([
     { role: "ai", text: "Hi! Ask me anything about art or your creative process 🚀" }
   ]);
@@ -481,10 +450,7 @@ function AIArtAssistantSection() {
   const [isLoading, setIsLoading] = React.useState(false);
   const inputRef = React.useRef();
 
-  // Dummy AI response simulation (can be extended for real backend integration)
-  // Generates a simulated response based on user input
   function getSimulatedAIResponse(userMessage) {
-    // Make this more elaborate if needed later
     const normalized = userMessage.trim().toLowerCase();
     if (normalized.match(/color|depth/gi)) {
       return "Try layering cooler and warmer tones, and use contrast or atmospheric perspective for depth!";
@@ -498,11 +464,9 @@ function AIArtAssistantSection() {
     if (normalized.match(/hello|hi|hey/i)) {
       return "Hello! What would you like to talk about in art today?";
     }
-    // Fallback generic
     return "That's a great question! Try to break it down: Start with composition, then detail, and always trust your creative instincts.";
   }
 
-  // Handle sending message
   const handleSend = (e) => {
     e.preventDefault();
     const trimmed = input.trim();
@@ -510,7 +474,6 @@ function AIArtAssistantSection() {
     setMessages(prev => [...prev, { role: "user", text: trimmed }]);
     setIsLoading(true);
     setInput("");
-    // Simulate "AI is typing..." delay for immersion
     setTimeout(() => {
       setMessages(prev => [
         ...prev,
@@ -520,17 +483,12 @@ function AIArtAssistantSection() {
     }, 900 + Math.floor(Math.random() * 700));
   };
 
-  // Focus input on mount
   React.useEffect(() => { if (inputRef.current) inputRef.current.focus(); }, []);
-
-  // Handle "Enter" to send in input
   const handleKeyDown = e => {
     if (e.key === "Enter" && !e.shiftKey) {
       handleSend(e);
     }
   };
-
-  // For accessibility: scroll to bottom on new message
   const chatRef = React.useRef();
   React.useEffect(() => {
     if (chatRef.current) {
@@ -624,7 +582,13 @@ function AIArtAssistantSection() {
         <em>
           Note: <b>AI answers are simulated for demo.</b>
           {" "}
-          <span style={{ color: "var(--accent)" }}>Live AI integration coming soon.</span>
+          <span style={{
+            background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            fontWeight: 600
+          }}>Live AI integration coming soon.</span>
         </em>
       </div>
     </section>
@@ -656,7 +620,6 @@ function UserGallerySection() {
         aria-label="User artwork"
         role="list"
       >
-        {/* Demo artwork cards */}
         <GalleryCard username="artist_rose" imgSrc="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=400&q=80" title="Blossom" />
         <GalleryCard username="sketchy_jay" imgSrc="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=facearea&w=400&q=80" title="Urban Improv" />
         <GalleryCard username="colorcarefree" imgSrc="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&q=80" title="Chromatic" />
@@ -729,13 +692,11 @@ function LessonCard({ title, level, color, desc }) {
         boxShadow: "0 3px 14px 0 rgba(25,35,45,0.13)",
         minHeight: 152,
         marginTop: 6,
-        /* Multi-colored border for accent */
         backgroundImage: "none",
         borderImage: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2) 1"
       }}
     >
       <div className="lesson-title" style={{ marginBottom: 2 }}>{title}</div>
-      {/* Gradient label for lesson level */}
       <span
         className="lesson-level"
         style={{
