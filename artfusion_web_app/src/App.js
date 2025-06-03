@@ -257,8 +257,13 @@ function ArtFusionMainContainer() {
   );
 }
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * InteractiveLessonsSection: Displays a 4x4 grid of 16 art lesson videos (placeholders), matching ArtFusion's modern theme.
+ */
 function InteractiveLessonsSection() {
+  const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4"); // 1hr+ placeholder, replace if real URLs become available
+
   return (
     <section className="artfusion-section artfusion-lessons" aria-labelledby="lessons-heading">
       <h2 id="lessons-heading" className="visually-hidden">Interactive Art Lessons</h2>
@@ -278,35 +283,61 @@ function InteractiveLessonsSection() {
         </span>
       </header>
       <p>
-        Step-by-step art tutorials and lessons for&nbsp;
-        <b>every skill level</b>.<br />
-        Try <strong>sketching</strong>, <strong>painting</strong>, or exploring <strong>digital art</strong> – new lessons weekly!
+        16 immersive, hour-long lesson videos.<br/>
+        <strong>Unlock your creative potential</strong> by following in-depth tutorials—accessible to all skill levels.
       </p>
       <div
-        className="artfusion-lessons-grid"
-        style={{ justifyContent: "center" }}
-        aria-label="Lesson topics"
+        className="artfusion-lessons-videogrid"
+        aria-label="Lesson Videos"
         role="region"
+        tabIndex={0}
       >
-        {/* Accessible Demo Lesson Cards */}
-        <LessonCard
-          title="Intro to Digital Sketching"
-          level="Beginner"
-          color="#FF6F61"
-          desc="Basic tools, structure, and line confidence."
-        />
-        <LessonCard
-          title="Shading & Light Techniques"
-          level="Intermediate"
-          color="#FFBB00"
-          desc="Learn shadows, blending, and form illumination."
-        />
-        <LessonCard
-          title="Dynamic Color Composition"
-          level="Advanced"
-          color="#66F1FF"
-          desc="Master palette choice and dramatic scenes."
-        />
+        {videoUrls.map((url, idx) => (
+          <div className="artfusion-lesson-videocell" key={idx}>
+            <div className="artfusion-lesson-video-wrapper">
+              <video
+                src={url}
+                controls
+                preload="metadata"
+                poster={`https://placehold.co/480x270/222/fff?text=Art+Lesson+${idx + 1}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  aspectRatio: "16/9",
+                  borderRadius: "12px",
+                  background: "#161920",
+                  border: "1.5px solid var(--border-color)",
+                  boxShadow: "0 2px 18px 0 rgba(20,18,33,0.25)",
+                  outline: "none"
+                }}
+                aria-label={`Art Lesson Video ${idx + 1}`}
+                tabIndex={0}
+              />
+            </div>
+            <div
+              className="artfusion-lesson-videolabel"
+              style={{
+                color: "var(--accent)",
+                fontWeight: 600,
+                fontSize: "1.03rem",
+                letterSpacing: "0.5px",
+                textAlign: "left",
+                marginTop: 10,
+                marginLeft: 2
+              }}
+            >
+              {`Lesson ${idx + 1}`}
+              <span style={{
+                color: "var(--text-secondary)",
+                fontWeight: 400,
+                marginLeft: 6,
+                fontSize: "0.91rem"
+              }}>
+                | {`Duration: 1 hr`}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
