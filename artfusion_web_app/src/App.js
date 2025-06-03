@@ -312,10 +312,82 @@ function InteractiveLessonsSection() {
   );
 }
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * Functional AI Art Assistant Section with simulated AI chat and extensibility.
+ */
 function AIArtAssistantSection() {
+  // Simple chat state – can be replaced by an API connection later
+  const [messages, setMessages] = React.useState([
+    { role: "ai", text: "Hi! Ask me anything about art or your creative process 🚀" }
+  ]);
+  const [input, setInput] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const inputRef = React.useRef();
+
+  // Dummy AI response simulation (can be extended for real backend integration)
+  // Generates a simulated response based on user input
+  function getSimulatedAIResponse(userMessage) {
+    // Make this more elaborate if needed later
+    const normalized = userMessage.trim().toLowerCase();
+    if (normalized.match(/color|depth/gi)) {
+      return "Try layering cooler and warmer tones, and use contrast or atmospheric perspective for depth!";
+    }
+    if (normalized.match(/inspiration|ideas/gi)) {
+      return "Browse artwork, experiment with themes, or remix a classic painting to spark ideas!";
+    }
+    if (normalized.match(/improve|skill|how/i)) {
+      return "Practice daily sketches, study anatomy, and seek critique from fellow artists.";
+    }
+    if (normalized.match(/hello|hi|hey/i)) {
+      return "Hello! What would you like to talk about in art today?";
+    }
+    // Fallback generic
+    return "That's a great question! Try to break it down: Start with composition, then detail, and always trust your creative instincts.";
+  }
+
+  // Handle sending message
+  const handleSend = (e) => {
+    e.preventDefault();
+    const trimmed = input.trim();
+    if (!trimmed) return;
+    setMessages(prev => [...prev, { role: "user", text: trimmed }]);
+    setIsLoading(true);
+    setInput("");
+    // Simulate "AI is typing..." delay for immersion
+    setTimeout(() => {
+      setMessages(prev => [
+        ...prev,
+        { role: "ai", text: getSimulatedAIResponse(trimmed) }
+      ]);
+      setIsLoading(false);
+    }, 900 + Math.floor(Math.random() * 700));
+  };
+
+  // Focus input on mount
+  React.useEffect(() => { if (inputRef.current) inputRef.current.focus(); }, []);
+
+  // Handle "Enter" to send in input
+  const handleKeyDown = e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSend(e);
+    }
+  };
+
+  // For accessibility: scroll to bottom on new message
+  const chatRef = React.useRef();
+  React.useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
+
   return (
-    <section className="artfusion-section artfusion-ai-assistant" aria-labelledby="ai-assistant-heading">
+    <section
+      className="artfusion-section artfusion-ai-assistant"
+      aria-labelledby="ai-assistant-heading"
+      style={{ minHeight: 333, display: "flex", flexDirection: "column", justifyContent: "flex-start" }}
+    >
       <h2 id="ai-assistant-heading" className="visually-hidden">AI Art Assistant</h2>
       <header style={{ marginBottom: 10, display: "flex", gap: 14, alignItems: "center" }}>
         <span role="img" aria-label="Robot" style={{ fontSize: "1.4em" }}>🤖</span>
@@ -327,24 +399,72 @@ function AIArtAssistantSection() {
       </header>
       <p>
         Chat with our AI for instant artistic feedback, spark new ideas,
-        and get creative <b>tips</b>. <span style={{ color: "var(--base-light)" }}>Coming soon!</span>
+        and get creative <b>tips</b>.
       </p>
-      <div className="artfusion-ai-widget" aria-label="Demo AI chat" role="region">
-        <div className="artfusion-ai-chat" style={{ marginBottom: "0.3em" }}>
-          <AssistantBubble inout="in" text="Hi! Ask me anything about art or your creative process 🚀" />
-          <AssistantBubble inout="out" text="How can I create depth with color?" />
-          <AssistantBubble inout="in" text="Try layering cooler and warmer tones to build dimensionality!" />
+      <div
+        className="artfusion-ai-widget"
+        aria-label="AI chat"
+        role="region"
+        style={{ marginBottom: 8 }}
+      >
+        <div
+          className="artfusion-ai-chat"
+          style={{ marginBottom: "0.3em", minHeight: 112, maxHeight: 192, overflowY: "auto" }}
+          ref={chatRef}
+        >
+          {messages.map((msg, idx) =>
+            <AssistantBubble
+              key={idx}
+              inout={msg.role === "user" ? "out" : "in"}
+              text={msg.text}
+            />
+          )}
+          {isLoading && (
+            <AssistantBubble inout="in" text={<span><span className="visually-hidden">AI is writing...</span><span aria-hidden="true">…</span></span>} />
+          )}
         </div>
-        <input
-          className="artfusion-ai-input"
-          type="text"
-          placeholder="Type your question or upload your artwork for feedback..."
-          disabled
-          aria-label="AI art assistant entry (demo only, disabled)"
-        />
+        <form
+          onSubmit={handleSend}
+          style={{ display: "flex", gap: 4, alignItems: "flex-end" }}
+          aria-label="Ask the AI Assistant"
+        >
+          <input
+            ref={inputRef}
+            className="artfusion-ai-input"
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your art question or 'upload artwork' for feedback…"
+            aria-label="Type your art-related question"
+            autoComplete="off"
+            disabled={isLoading}
+            style={{ flex: 1, marginBottom: 0 }}
+          />
+          <button
+            className="btn"
+            style={{
+              minWidth: 77,
+              marginLeft: 6,
+              background: "var(--accent)",
+              color: "#fff",
+              borderRadius: 7,
+              opacity: input.length ? 0.88 : 0.48,
+              fontWeight: 600,
+              transition: "opacity 0.16s"
+            }}
+            type="submit"
+            disabled={!input.trim() || isLoading}
+            aria-label="Send question"
+          >Send</button>
+        </form>
       </div>
-      <div className="artfusion-ai-note">
-        <em>Note: <b>Demo chat UI only</b>. <span style={{ color: "var(--accent)" }}>Full AI coming soon.</span></em>
+      <div className="artfusion-ai-note" style={{ marginTop: 4 }}>
+        <em>
+          Note: <b>AI answers are simulated for demo.</b>
+          {" "}
+          <span style={{ color: "var(--accent)" }}>Live AI integration coming soon.</span>
+        </em>
       </div>
     </section>
   );
