@@ -327,8 +327,14 @@ body {
   background: linear-gradient(115deg, #1e2b47 60%, #24292fdd 100%);
 }
 .artfusion-lesson-level-advanced {
-  color: #A259FF;
-  background: linear-gradient(112deg, #3d185e 70%, #24292fee 100%);
+  /* Gradient accent on text */
+  background: linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  color: transparent;
 }
 @media (max-width: 1150px) {
   .artfusion-lessons-videogrid {
