@@ -417,35 +417,14 @@ function InteractiveLessonsSection() {
                 tabIndex={0}
               />
             </div>
+            {/* Lesson title now directly beneath video, separated for clarity */}
             <div
               className={`artfusion-lesson-videolabel artfusion-lesson-level-${lessonLevels[idx].toLowerCase()}`}
-              style={{
-                background: "linear-gradient(90deg, #FF70A6,#A259FF,#56CCF2)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-                fontWeight: 700,
-                fontSize: "1.09rem",
-                letterSpacing: "0.5px",
-                textAlign: "left",
-                marginTop: 14,
-                marginLeft: 2,
-                marginBottom: 2,
-                lineHeight: 1.3,
-                textShadow: "0 2px 12px #24292f88",
-                transition: "color 0.19s"
-              }}
             >
-              {lessonTitles[idx]}
-              <span style={{
-                color: "var(--text-secondary)",
-                fontWeight: 400,
-                marginLeft: 8,
-                fontSize: "0.94rem",
-                letterSpacing: 0
-              }}>
+              <span className="lesson-title-text">{lessonTitles[idx]}</span>
+              <span className="lesson-label-meta">
                 | {lessonLevels[idx]}
-                <span style={{ marginLeft: 8, fontSize: "0.84em" }}>| Duration: 1 hr</span>
+                <span className="lesson-duration-meta">| Duration: 1 hr</span>
               </span>
             </div>
           </div>
