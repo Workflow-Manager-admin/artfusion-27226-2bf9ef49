@@ -408,9 +408,9 @@ function InteractiveLessonsSection() {
                   height: "100%",
                   aspectRatio: "16/9",
                   borderRadius: "12px",
-                  background: "#161920",
-                  border: "1.5px solid var(--border-color)",
-                  boxShadow: "0 2px 18px 0 rgba(20,18,33,0.25)",
+                  background: "none",
+                  border: "none",
+                  boxShadow: "none",
                   outline: "none"
                 }}
                 aria-label={`Art Lesson Video ${idx + 1}: ${lessonTitles[idx]}`}
@@ -715,7 +715,8 @@ function LessonCard({ title, level, color, desc }) {
           color: "#fff",
           marginTop: "auto",
           opacity: 0.93,
-          boxShadow: "0 2px 8px 0 #A259FF40"
+          boxShadow: "none",
+          border: "none"
         }}>Start</button>
     </article>
   );
@@ -729,7 +730,8 @@ function GalleryCard({ username, imgSrc, title }) {
       aria-label={`Artwork: ${title} by @${username}`}
       style={{
         boxShadow: "none",
-        background: "none"
+        background: "none",
+        border: "none"
       }}
     >
       <div className="gallery-img"
@@ -737,7 +739,9 @@ function GalleryCard({ username, imgSrc, title }) {
           backgroundImage: `url(${imgSrc})`,
           borderBottom: "none",
           minHeight: 145,
-          boxShadow: "none"
+          boxShadow: "none",
+          background: "none",
+          border: "none"
         }}
         aria-hidden="true"
       ></div>
