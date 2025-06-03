@@ -132,42 +132,73 @@ function ArtSPlusMainContainer() {
             tabIndex={0}
             /* No style prop here: all text gradient, shadow, and weight handled by .artsplus-logo in App.css */
           >
-            {/* Art Palette SVG icon replaces star logo */}
-            <span className="logo-symbol" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', fontSize: '1.25em', lineHeight: '1.1' }}>
+            {/* Custom SVG Art Palette - brown base with colored paint cakes */}
+            <span
+              className="logo-symbol"
+              aria-hidden="true"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                fontSize: '1.32em',
+                lineHeight: '1.1',
+                marginRight: 1,
+              }}
+            >
               <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
+                width="31"
+                height="27"
+                viewBox="0 0 31 27"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
                   display: 'block',
                   verticalAlign: 'middle',
                   marginRight: 2,
+                  filter: 'drop-shadow(0 0 1px #0008)'
                 }}
                 aria-hidden="true"
               >
+                {/* Palette base: brown ombre for warmth and contrast */}
                 <ellipse
-                  cx="15"
-                  cy="14"
-                  rx="11"
-                  ry="9"
-                  fill="url(#paletteOmbre)"
-                  stroke="var(--accent)"
-                  strokeWidth="1.5"
+                  cx="16"
+                  cy="13.4"
+                  rx="12.3"
+                  ry="10.1"
+                  fill="url(#palette-brown-gradient)"
+                  stroke="#654321"
+                  strokeWidth="1.7"
+                  style={{}}
                 />
-                <ellipse cx="9.5" cy="13.8" rx="1.05" ry="1.05" fill="#FFDB57" />
-                <ellipse cx="14.6" cy="9.8" rx="1.07" ry="1.07" fill="#64D8FF" />
-                <ellipse cx="13.0" cy="17.7" rx="1.05" ry="1.05" fill="#A259FF" />
-                <ellipse cx="18.1" cy="14.8" rx="1.02" ry="1.02" fill="#E87A41" />
-                <path
-                  d="M18.2 21.5c-2 .4-2.3-1.1-1.7-2.2.6-1.1 2.7-1.2 3.1 0 .36.8-.13 2-1.4 2.2Z"
-                  fill="#fff" opacity="0.8"
+                {/* Palette thumb hole */}
+                <ellipse
+                  cx="25.2"
+                  cy="21"
+                  rx="2.1"
+                  ry="1.55"
+                  fill="#201613"
+                  opacity="0.56"
+                />
+                {/* Paint cakes */}
+                <circle cx="10.8" cy="15.5" r="1.32" fill="#FFE066" stroke="#fff6e0" strokeWidth="0.22"/>
+                <circle cx="15.0" cy="10.7" r="1.28" fill="#55D6F6" stroke="#d0f2ff" strokeWidth="0.18"/>
+                <circle cx="12.7" cy="19.3" r="1.12" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.2"/>
+                <circle cx="20.6" cy="14.2" r="1.28" fill="#FF6F61" stroke="#ffd5cf" strokeWidth="0.15"/>
+                <circle cx="19" cy="18.5" r="1.05" fill="#60C878" stroke="#e4ffea" strokeWidth="0.14"/>
+                {/* Subtle light reflection */}
+                <ellipse
+                  cx="14.6"
+                  cy="8.1"
+                  rx="2.9"
+                  ry="0.77"
+                  fill="#fff"
+                  opacity="0.12"
+                  transform="rotate(-9 14.6 8.1)"
                 />
                 <defs>
-                  <linearGradient id="paletteOmbre" x1="4" y1="7" x2="20" y2="25" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#232323" />
-                    <stop offset="1" stopColor="#1A1A1A" />
+                  <linearGradient id="palette-brown-gradient" x1="7" y1="3" x2="26" y2="24" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#8B5C2B"/>
+                    <stop offset="0.5" stopColor="#C99B63"/>
+                    <stop offset="1" stopColor="#4E342E"/>
                   </linearGradient>
                 </defs>
               </svg>
