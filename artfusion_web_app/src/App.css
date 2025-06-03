@@ -15,7 +15,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Inter', 'Roboto', 'Helvetica Neue', Arial, 'Segoe UI', sans-serif;
   background-color: var(--primary);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
