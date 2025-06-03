@@ -637,7 +637,10 @@ function UserGallerySection() {
       <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
         <span role="img" aria-label="Gallery" style={{ fontSize: "1.4em" }}>🖼️</span>
         <span style={{
-          color: "var(--accent)",
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
           fontSize: "2.1rem",
           fontWeight: 800
         }}>User Gallery</span>
@@ -673,7 +676,10 @@ function ResourceLibrarySection() {
       <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
         <span role="img" aria-label="Books" style={{ fontSize: "1.35em" }}>📚</span>
         <span style={{
-          color: "var(--accent)",
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
           fontSize: "2.1rem",
           fontWeight: 800
         }}>Resource Library</span>
