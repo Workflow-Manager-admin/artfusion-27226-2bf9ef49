@@ -517,12 +517,14 @@ body {
   text-decoration: underline;
 }
 .resource-chip {
-  background: var(--accent);
+  /* Accent gradient as pill background */
+  background: var(--accent-gradient);
   color: #fff;
   font-size: 0.90rem;
   border-radius: 10px;
   padding: 2px 9px;
   margin-left: 6px;
+  box-shadow: 0 2px 6px #A259FF40;
 }
 
 /* --- Footer --- */
@@ -549,7 +551,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.23s cubic-bezier(.19,1,.22,1);
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #fff;
   padding: 7px 15px 7px 15px;
   border-radius: 8px;
