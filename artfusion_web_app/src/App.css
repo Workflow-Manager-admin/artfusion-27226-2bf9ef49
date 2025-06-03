@@ -114,18 +114,7 @@ body {
   -moz-text-fill-color: transparent;
   /* Fallback for legacy/IE: keep as transparent for clarity on dark background */
 
-  /* Very strong, soft-edged white glow for prominent readability */
-  text-shadow:
-    0 0 13px rgba(255,255,255,0.95),             /* concentrated white outline */
-    0 2px 12px rgba(255,255,255,0.68),           /* broad diffused glow */
-    0 0 30px #fff9,                              /* extra outer haze */
-    0 1.5px 2.2px #fff7,                         /* layering for glow pop */
-    0 2px 16px #89e7ff55,                        /* faint cool cyan aura */
-    0 1px 0.6px #110a19cc,                       /* subtle ground/drop anchor for contrast */
-    0 0.8px 0.7px #000;                          /* minimal drop shadow */
-
-  /* Improved font clarity for dark backgrounds */
-  /* Slightly bolder letter-spacing and up-bump in font size aid contrast */
+  /* Removed text-shadow/glow per request: No glow, only gradient! */
 }
 
 .artsplus-logo::after {
