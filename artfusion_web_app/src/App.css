@@ -444,7 +444,7 @@ body {
 }
 
 .navbar {
-  background-color: var(--base-dark);
+  background-color: #232323;
   padding: 16px;
   display: flex;
   align-items: center;
@@ -463,10 +463,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text-color);
 }
 
 .logo-symbol {
-  color: var(--base-light);
+  color: var(--accent);
 }
 
 .hero {
