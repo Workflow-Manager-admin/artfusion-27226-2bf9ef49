@@ -130,7 +130,7 @@ function ArtSPlusMainContainer() {
             role="heading"
             aria-level={1}
             tabIndex={0}
-            /* No style prop here: all text gradient handled by new CSS */
+            /* No style prop here: all text gradient, shadow, and weight handled by .artsplus-logo in App.css */
           >
             {/* Art Palette SVG icon replaces star logo */}
             <span className="logo-symbol" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', fontSize: '1.25em', lineHeight: '1.1' }}>
