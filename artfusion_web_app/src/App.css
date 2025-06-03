@@ -22,10 +22,12 @@
 body {
   margin: 0;
   font-family: 'Montserrat', 'Inter', 'Roboto', 'Helvetica Neue', Arial, 'Segoe UI', sans-serif;
-  background-color: var(--primary);
+  /* Use the main colorful gradient as background */
+  background: var(--main-gradient-bg) fixed;
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 /* ======= ArtFusion Main Layout ======= */
@@ -38,13 +40,20 @@ body {
   overflow-x: hidden;
 }
 
-/* Ombre gradient background overlay */
+/* Main vibrant gradient background overlay
+   Covers the viewport with a pink-purple-blue glow,
+   subtly angled for energy and depth */
 .artfusion-gradient-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 110vh;
   z-index: 0;
-  background: var(--ombre-gradient);
+  background: var(--main-gradient-bg);
+  opacity: 0.93;
   pointer-events: none;
+  transition: background 0.6s cubic-bezier(.45,1,.6,1.01);
+  will-change: background;
+  /* softly blur for modern look */
+  filter: blur(0.5px);
 }
 
 /* Navigation Bar */
