@@ -94,29 +94,29 @@ body {
 .artfusion-nav-btn:hover {
   color: var(--accent);
   background: rgba(255,111,97, 0.13);
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-  transition: background 0.21s, color 0.14s, outline 0.20s;
-  box-shadow: 0 2px 17px 0 var(--accent), 0 0 1px #222 inset;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  transition: background 0.18s, color 0.12s, outline 0.16s;
+  box-shadow: 0 1px 10px 0 var(--accent), 0 0 1px #222 inset;
 }
 /* Wide, animated accent border beneath active nav */
 .artfusion-nav-btn .artfusion-animated-accent {
   display: block;
-  left: -2%;
-  right: -2%;
-  bottom: -7px;
-  height: 5px;
-  border-radius: 3px;
+  left: -4%;
+  right: -4%;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 2px;
   background: linear-gradient(90deg, var(--accent) 55%, transparent 100%);
-  opacity: 0.92;
-  box-shadow: 0 2px 13px 0 var(--accent), 0 0 1px #222 inset;
+  opacity: 0.88;
+  box-shadow: 0 1px 7px 0 var(--accent), 0 0 1px #222 inset;
   animation: artfusion-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
 }
 
 /* Main Layout & Content */
 .artfusion-main {
-  margin-top: 90px;
-  margin-bottom: 48px;
+  margin-top: 60px; /* Reduced for shorter navbar */
+  margin-bottom: 32px;
   min-height: 65vh;
   z-index: 2;
   position: relative;
