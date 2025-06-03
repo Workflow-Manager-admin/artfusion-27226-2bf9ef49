@@ -85,44 +85,47 @@ body {
   background: transparent;
 }
 .artsplus-logo {
-  /* Brighter, more saturated ombre: hot pink → vivid violet → rich blue-cyan */
-  font-size: 1.28rem;
-  font-weight: 950;
-  letter-spacing: 0.8px;
+  /* Modern, super-vivid pink → purple → blue gradient for max legibility */
+  font-size: 1.37rem;           /* Slightly increased for visibility */
+  font-weight: 980;             /* Extra heavy for clarity */
+  letter-spacing: 0.98px;
   color: transparent;
-
-  /* Strongest, vibrant and light-leaning pink-violet-blue gradient for max contrast */
-  background: linear-gradient(93deg, 
-    #ff4fcf 8%,    /* neon hot pink */
-    #ff7bfc 22%,   /* bright light magenta */
-    #b96dfd 41%,   /* vivid violet purple */
-    #6487ff 76%,   /* bold medium blue */
-    #36e4ff 96%    /* electric cyan blue for lively highlight */
-  );
-  background-size: 170% auto;
-
-  /* Cross-browser gradient-on-text support (all major engines) */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* For Firefox */
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-
-  /* Intensified white outer glow + sharper shadow for extremely strong legibility */
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.77),
-    0 2px 10px rgba(255,255,255,0.41),
-    0 0 18px #fff8,
-    0 0.8px 0.7px #000,
-    0 2px 24px #80e6ff66;
-
+  line-height: 1.08;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-  line-height: 1.09;
-  min-width: 0;
-  /* Slight letterspacing and bump in font for extra clarity against black */
+
+  /* Vibrant, highly luminous multi-stop gradient */
+  background: linear-gradient(94deg, 
+    #ff76d6 4%,   /* bright light pink */
+    #ff76fc 20%,  /* lighter neon magenta */
+    #d288ff 38%,  /* lively light purple */
+    #8eb6ff 67%,  /* sky blue */
+    #5cefff 92%   /* electric cyan */
+  );
+  background-size: 180% auto;
+
+  /* Cross-browser: background gradient text clipping & fill */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  /* Fallback for legacy/IE: keep as transparent for clarity on dark background */
+
+  /* Very strong, soft-edged white glow for prominent readability */
+  text-shadow:
+    0 0 13px rgba(255,255,255,0.95),             /* concentrated white outline */
+    0 2px 12px rgba(255,255,255,0.68),           /* broad diffused glow */
+    0 0 30px #fff9,                              /* extra outer haze */
+    0 1.5px 2.2px #fff7,                         /* layering for glow pop */
+    0 2px 16px #89e7ff55,                        /* faint cool cyan aura */
+    0 1px 0.6px #110a19cc,                       /* subtle ground/drop anchor for contrast */
+    0 0.8px 0.7px #000;                          /* minimal drop shadow */
+
+  /* Improved font clarity for dark backgrounds */
+  /* Slightly bolder letter-spacing and up-bump in font size aid contrast */
 }
 
 .artsplus-logo::after {
