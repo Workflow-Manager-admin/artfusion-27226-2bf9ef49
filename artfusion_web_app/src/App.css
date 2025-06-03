@@ -55,31 +55,37 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 44px; /* Reduced from 64px */
   width: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .artfusion-logo {
-  font-size: 1.40rem;
+  font-size: 1.03rem; /* Reduced from 1.40rem */
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   color: var(--text-color);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px; /* Slightly reduced */
+  line-height: 1.1;
+  min-width: 0;
 }
 .artfusion-navlinks {
   display: flex;
-  gap: 8px;
+  gap: 4px; /* Less gap between nav items */
 }
 .artfusion-nav-btn {
   background: none;
   color: var(--text-color);
   border: none;
-  border-radius: 5px;
-  padding: 8px 18px;
-  font-size: 1.04rem;
+  border-radius: 4px; /* Slightly smaller */
+  padding: 4px 10px; /* Reduced padding */
+  font-size: 0.96rem; /* Slightly smaller font */
   font-weight: 500;
-  transition: background 0.1s, color 0.1s;
+  min-height: 28px;
+  min-width: 44px; /* touch target for accessibility */
+  transition: background 0.08s, color 0.1s;
   cursor: pointer;
   outline: none;
 }
