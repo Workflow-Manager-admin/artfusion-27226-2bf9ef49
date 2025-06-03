@@ -158,16 +158,15 @@ function ArtSPlusMainContainer() {
                 }}
                 aria-hidden="true"
               >
-                {/* Palette base: brown ombre for warmth and contrast */}
+                {/* Palette base: solid brown for warmth and great contrast */}
                 <ellipse
                   cx="16"
                   cy="13.4"
                   rx="12.3"
                   ry="10.1"
-                  fill="url(#palette-brown-gradient)"
+                  fill="#A0522D"
                   stroke="#654321"
                   strokeWidth="1.7"
-                  style={{}}
                 />
                 {/* Palette thumb hole */}
                 <ellipse
@@ -175,32 +174,25 @@ function ArtSPlusMainContainer() {
                   cy="21"
                   rx="2.1"
                   ry="1.55"
-                  fill="#201613"
-                  opacity="0.56"
+                  fill="#3d2416"
+                  opacity="0.80"
                 />
                 {/* Paint cakes */}
                 <circle cx="10.8" cy="15.5" r="1.32" fill="#FFE066" stroke="#fff6e0" strokeWidth="0.22"/>
                 <circle cx="15.0" cy="10.7" r="1.28" fill="#55D6F6" stroke="#d0f2ff" strokeWidth="0.18"/>
-                <circle cx="12.7" cy="19.3" r="1.12" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.2"/>
+                <circle cx="12.7" cy="19.3" r="1.12" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.20"/>
                 <circle cx="20.6" cy="14.2" r="1.28" fill="#FF6F61" stroke="#ffd5cf" strokeWidth="0.15"/>
                 <circle cx="19" cy="18.5" r="1.05" fill="#60C878" stroke="#e4ffea" strokeWidth="0.14"/>
-                {/* Subtle light reflection */}
+                {/* Subtle light reflection for 3D effect, use lighter brown/white with reduced opacity */}
                 <ellipse
-                  cx="14.6"
-                  cy="8.1"
-                  rx="2.9"
-                  ry="0.77"
+                  cx="13.8"
+                  cy="8.3"
+                  rx="2.4"
+                  ry="0.61"
                   fill="#fff"
-                  opacity="0.12"
-                  transform="rotate(-9 14.6 8.1)"
+                  opacity="0.11"
+                  transform="rotate(-9 13.8 8.3)"
                 />
-                <defs>
-                  <linearGradient id="palette-brown-gradient" x1="7" y1="3" x2="26" y2="24" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#8B5C2B"/>
-                    <stop offset="0.5" stopColor="#C99B63"/>
-                    <stop offset="1" stopColor="#4E342E"/>
-                  </linearGradient>
-                </defs>
               </svg>
             </span>
             ArtS+
