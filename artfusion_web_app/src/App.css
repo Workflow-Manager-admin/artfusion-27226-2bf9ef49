@@ -155,12 +155,25 @@ body {
 .artsplus-nav-btn.active,
 .artsplus-nav-btn:focus,
 .artsplus-nav-btn:hover {
-  color: var(--accent);
+  /* Accent gradient text and border */
   background: rgba(60,60,60, 0.26);
-  outline: 2px solid var(--accent);
+  /* Gradient accent on text */
+  background-image: var(--accent-gradient);
+  background-size: 100% 3px;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+
+  border: none;
+  outline: 2px solid transparent;
   outline-offset: 2px;
-  transition: background 0.18s, color 0.12s, outline 0.16s;
   box-shadow: 0 1px 10px 0 #A259FF, 0 0 1px #222 inset;
+  /* Add bottom animated gradient bar via pseudo-element in .artsplus-animated-accent */
+  position: relative;
+  transition: background 0.18s, color 0.12s, outline 0.16s;
 }
 /* Wide, animated accent border beneath active nav */
 .artsplus-nav-btn .artsplus-animated-accent {
@@ -204,7 +217,14 @@ body {
 }
 
 .artsplus-section h2 {
-  color: var(--accent);
+  /* Accent gradient as text */
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  color: transparent;
   font-size: 2.20rem;
   font-weight: 700;
   margin-bottom: 8px;
