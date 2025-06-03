@@ -197,33 +197,43 @@ body {
 .artsplus-nav-btn.active,
 .artsplus-nav-btn:focus,
 .artsplus-nav-btn:hover {
-  background: rgba(60,60,60, 0.26);
-  background-image: var(--accent-gradient);
-  background-size: 100% 3px;
+  /* Remove all box, background, border, shadow effects */
+  background: none !important;
+  background-image: none !important;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
-  border: none;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  box-shadow: 0 1px 10px 0 #A259FF, 0 0 1px #222 inset;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   position: relative;
-  transition: background 0.18s, color 0.12s, outline 0.16s;
+  transition: color 0.12s, background 0.18s, outline 0.16s;
 }
-.artsplus-nav-btn .artsplus-animated-accent {
+
+.artsplus-nav-btn.active::after,
+.artsplus-nav-btn:focus::after,
+.artsplus-nav-btn:hover::after {
+  content: '';
   display: block;
-  left: -4%;
-  right: -4%;
-  bottom: -6px;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
   height: 3px;
   border-radius: 2px;
   background: var(--accent-gradient);
   opacity: 0.97;
-  box-shadow: 0 2px 10px 0 #FF70A6, 0 0 9px 0 #56CCF2, 0 0 2px #1a1a1a inset;
-  animation: artsplus-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
+  transition: opacity 0.24s, background 0.15s;
+  /* for glow-like accent, no box */
+  box-shadow: 0 2px 7px 0 #A259FF60;
+}
+
+/* Remove previous underline animation for nav-btn children, and keep for new effect */
+.artsplus-nav-btn .artsplus-animated-accent {
+  display: none !important;
 }
 
 /* New flex wrapper for central fill */
