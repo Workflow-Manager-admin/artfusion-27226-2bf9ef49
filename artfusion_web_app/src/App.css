@@ -28,8 +28,9 @@
 body {
   margin: 0;
   font-family: 'Montserrat', 'Inter', 'Roboto', 'Helvetica Neue', Arial, 'Segoe UI', sans-serif;
-  /* Use the main colorful gradient as background */
-  background: var(--main-gradient-bg) fixed;
+  /* Subtle dark base with gentle color-tint overlay */
+  background:
+    var(--main-gradient-bg) fixed;
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
