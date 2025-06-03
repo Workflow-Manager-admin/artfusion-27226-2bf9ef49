@@ -433,8 +433,8 @@ body {
   justify-content: center;
 }
 .artfusion-lesson-videolabel {
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
+  margin-top: 0.85em; /* Slightly more for clear separation from video */
+  margin-bottom: 0.35em;
   color: transparent;
   background: var(--accent-gradient)!important;
   background-clip: text;
@@ -442,20 +442,78 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
-  font-weight: 600;
-  font-size: 1.03rem;
+  font-weight: 700;
+  font-size: 1.10rem;
   letter-spacing: 0.5px;
   text-align: left;
   border-radius: 0 !important;
-  padding: 7px 10px 7px 10px;
-  margin-left: 0;
+  padding: 2px 8px 3px 8px;
+  margin-left: 2px;
   margin-right: 0;
   background: none !important;
   box-shadow: none !important;
   transition: background 0.16s, color 0.17s;
-  text-shadow: none !important;
+  text-shadow: 0 2px 12px #24292f66 !important;
+  line-height: 1.32;
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.lesson-title-text {
+  font-size: 1.09rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  color: transparent;
+  line-height: 1.22;
+  padding-right: 6px;
+}
+
+.lesson-label-meta {
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none !important;
+  margin-left: 8px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+.lesson-duration-meta {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-left: 7px;
+}
+
+@media (max-width: 1150px) {
+  .artfusion-lesson-videolabel {
+    font-size: 1.01rem;
+    padding: 1px 6px 2px 6px;
+    margin-top: 9px;
+  }
+  .lesson-title-text {
+    font-size: 1.01rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .artfusion-lesson-videolabel {
+    font-size: 0.98rem;
+    padding: 1px 4px 1px 4px;
+    margin-top: 8px;
+  }
+  .lesson-title-text {
+    font-size: 0.98rem;
+  }
 }
 .artfusion-lesson-level-beginner {
   color: #40e0d0;
