@@ -1,11 +1,11 @@
 # Lightweight React Template for KAVIA
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This project provides a minimal React template branded as ArtS+ with a clean, modern UI and minimal dependencies.
 
 ## Features
 
 - **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
+- **Modern UI**: Clean, responsive design with KAVIA/ArtS+ brand styling
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
@@ -50,7 +50,7 @@ This template uses pure HTML/CSS components instead of a UI framework. You can f
 Common components include:
 - Buttons (`.btn`, `.btn-large`)
 - Container (`.container`)
-- Navigation (`.navbar`)
+- Navigation (`.artsplus-navbar`)  <!-- Brand change: navbar class is now .artsplus-navbar -->
 - Typography (`.title`, `.subtitle`, `.description`)
 
 ## Learn More
