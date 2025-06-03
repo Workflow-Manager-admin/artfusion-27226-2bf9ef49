@@ -234,7 +234,7 @@ function ArtSPlusMainContainer() {
         {/* Contextual onboarding nudge (for first-time users) */}
         {onboarding && (
           <div
-            className="artfusion-onboarding-nudge"
+            className="artsplus-onboarding-nudge"
             style={{
               position: 'absolute',
               left: '50%',
@@ -249,7 +249,7 @@ function ArtSPlusMainContainer() {
               fontSize: '1.13rem',
               boxShadow: '0 4px 18px 0 rgba(162,89,255,0.16)',
               cursor: "pointer",
-              animation: "artfusion-fade-up-in 0.9s cubic-bezier(.35,1.11,.54,.99)",
+              animation: "artsplus-fade-up-in 0.9s cubic-bezier(.35,1.11,.54,.99)",
             }}
             tabIndex={0}
             role="dialog"
@@ -262,20 +262,20 @@ function ArtSPlusMainContainer() {
               }
             }}
           >
-            Welcome to ArtFusion! Tap the tabs above to begin your creative journey. <span aria-hidden="true" style={{marginLeft: 10}}>✨</span>
+            Welcome to ArtS+! Tap the tabs above to begin your creative journey. <span aria-hidden="true" style={{marginLeft: 10}}>✨</span>
             <span style={{ marginLeft: 16, textDecoration: "underline", fontWeight: 500, cursor: "pointer" }}>Dismiss</span>
           </div>
         )}
       </nav>
 
       {/* Ombre Gradient Background Layer */}
-      <div className="artfusion-gradient-bg" aria-hidden="true"></div>
+      <div className="artsplus-gradient-bg" aria-hidden="true"></div>
 
       {/* Main Content with subtle fade-in */}
       <main
-        className="artfusion-main container"
+        className="artsplus-main container"
         ref={contentRef}
-        style={{ animation: "artfusion-fade-in 0.65s cubic-bezier(.36,1.17,.53,1.1) both" }}
+        style={{ animation: "artsplus-fade-in 0.65s cubic-bezier(.36,1.17,.53,1.1) both" }}
         aria-live="polite"
         tabIndex={-1}
         key={fadeKey}
@@ -287,9 +287,9 @@ function ArtSPlusMainContainer() {
       </main>
 
       {/* Footer */}
-      <footer className="artfusion-footer" tabIndex={0}>
+      <footer className="artsplus-footer" tabIndex={0}>
         <span>
-          ArtFusion &copy; {new Date().getFullYear()} &ndash; <span style={{color: "var(--accent)"}}>Unleash Your Inner Artist</span>
+          ArtS+ &copy; {new Date().getFullYear()} &ndash; <span style={{color: "var(--accent)"}}>Unleash Your Inner Artist</span>
         </span>
       </footer>
     </div>
@@ -298,7 +298,7 @@ function ArtSPlusMainContainer() {
 
 /**
  * PUBLIC_INTERFACE
- * InteractiveLessonsSection: Displays a 4x4 grid of 16 art lesson videos (placeholders), matching ArtFusion's modern theme.
+ * InteractiveLessonsSection: Displays a 4x4 grid of 16 art lesson videos (placeholders), matching ArtS+ modern theme.
  */
 function InteractiveLessonsSection() {
   // Skill progression titles for each video lesson (4x4 grid)
@@ -721,4 +721,4 @@ function AssistantBubble({ inout, text }) {
   );
 }
 
-export default ArtFusionMainContainer;
+export default ArtSPlusMainContainer;
