@@ -183,9 +183,9 @@ body {
   bottom: -6px;
   height: 3px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent) 60%, transparent 100%);
-  opacity: 0.94;
-  box-shadow: 0 1px 7px 0 #A259FF, 0 0 2px #1a1a1a inset;
+  background: var(--accent-gradient);
+  opacity: 0.97;
+  box-shadow: 0 2px 10px 0 #FF70A6, 0 0 9px 0 #56CCF2, 0 0 2px #1a1a1a inset;
   animation: artsplus-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
 }
 
