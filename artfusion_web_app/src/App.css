@@ -219,6 +219,36 @@ body {
   font-size: 1.03rem;
   letter-spacing: 0.5px;
   text-align: left;
+  /* Enhanced for better ombre/dark readability */
+  background: linear-gradient(120deg, #292b35cc 0%, #24292fcc 90%);
+  border-radius: 8px;
+  padding: 7px 10px 7px 10px;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: 0 2px 16px 0 rgba(20,22,30,0.10);
+  transition: background 0.16s, color 0.17s;
+  text-shadow: 0 3px 14px #1a1a1a70;
+  /* Keeps label distinct on video grid */
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional accent color tweaks for levels for further clarity */
+.artfusion-lesson-level-beginner {
+  color: #40e0d0;
+  background: linear-gradient(110deg, #092e3f 70%, #24292fdd 100%);
+}
+.artfusion-lesson-level-novice {
+  color: #FFD062;
+  background: linear-gradient(115deg, #3b2a1a 70%, #24292fdd 100%);
+}
+.artfusion-lesson-level-intermediate {
+  color: #7ECBFF;
+  background: linear-gradient(115deg, #1e2b47 60%, #24292fdd 100%);
+}
+.artfusion-lesson-level-advanced {
+  color: #FF6F61;
+  background: linear-gradient(112deg, #44101b 70%, #24292fee 100%);
 }
 @media (max-width: 1150px) {
   .artfusion-lessons-videogrid {
