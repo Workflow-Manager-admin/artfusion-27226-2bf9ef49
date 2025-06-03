@@ -513,6 +513,13 @@ body {
   transition: background-color 0.2s ease;
 }
 
+/* Navbar button adjustments for dark theme */
+.artfusion-nav-btn, 
+.navbar .btn {
+  color: var(--text-color);
+  background: none;
+}
+
 .btn:hover {
   background-color: #7691ff;
 }
