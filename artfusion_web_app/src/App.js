@@ -102,6 +102,9 @@ function ArtSPlusMainContainer() {
 
   return (
     <div className="artsplus-app" role="main">
+      {/* Gradient BG always edge-to-edge */}
+      <div className="artsplus-gradient-bg" aria-hidden="true"></div>
+
       {/* Navigation Bar */}
       <nav
         className="navbar artsplus-navbar"
@@ -109,7 +112,7 @@ function ArtSPlusMainContainer() {
         ref={navbarRef}
         tabIndex={-1}
       >
-        <div className="artsplus-navbar-inner container">
+        <div className="artsplus-navbar-inner">
           <div
             className="logo artsplus-logo"
             role="heading"
@@ -282,20 +285,37 @@ function ArtSPlusMainContainer() {
         )}
       </nav>
 
-      <div className="artsplus-gradient-bg" aria-hidden="true"></div>
-      <main
-        className="artsplus-main container"
-        ref={contentRef}
-        style={{ animation: "artsplus-fade-in 0.65s cubic-bezier(.36,1.17,.53,1.1) both" }}
-        aria-live="polite"
-        tabIndex={-1}
-        key={fadeKey}
-      >
-        {activeSection === 'lessons' && <InteractiveLessonsSection />}
-        {activeSection === 'assistant' && <AIArtAssistantSection />}
-        {activeSection === 'gallery' && <UserGallerySection />}
-        {activeSection === 'resources' && <ResourceLibrarySection />}
-      </main>
+      {/* Main content flex & fill */}
+      <div className="artsplus-main-flex" style={{
+          flex: 1,
+          minHeight: 0,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start"
+      }}>
+        <main
+          className="artsplus-main"
+          ref={contentRef}
+          style={{
+            animation: "artsplus-fade-in 0.65s cubic-bezier(.36,1.17,.53,1.1) both",
+            flex: 1,
+            width: "100%",
+            minHeight: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start"
+          }}
+          aria-live="polite"
+          tabIndex={-1}
+          key={fadeKey}
+        >
+          {activeSection === 'lessons' && <InteractiveLessonsSection />}
+          {activeSection === 'assistant' && <AIArtAssistantSection />}
+          {activeSection === 'gallery' && <UserGallerySection />}
+          {activeSection === 'resources' && <ResourceLibrarySection />}
+        </main>
+      </div>
+      
       <footer className="artsplus-footer" tabIndex={0}>
         <span>
           ArtS+ &copy; {new Date().getFullYear()} &ndash;
