@@ -370,6 +370,25 @@ function InteractiveLessonsSection() {
     "Intermediate", "Intermediate", "Intermediate", "Intermediate",
     "Advanced", "Advanced", "Advanced", "Advanced"
   ];
+  // Descriptions: keep it concise and relevant to lesson level and focus
+  const lessonDescriptions = [
+    "Beginner: Learn the basics of sketching lines, curves, and proportions.",
+    "Beginner: Master simple shapes and forms as building blocks for art.",
+    "Beginner: Explore basic shading techniques for depth and contrast.",
+    "Beginner: Set up and sketch a simple still life composition.",
+    "Novice: Introduction to color theory and using color in your art.",
+    "Novice: Practice blending colors and making soft transitions.",
+    "Novice: Step-by-step to drawing expressive faces and features.",
+    "Novice: Create simple landscapes with perspective and layers.",
+    "Intermediate: Figure drawing fundamentals, gesture and anatomy.",
+    "Intermediate: Study the rules of perspective for realistic scenes.",
+    "Intermediate: Compose stronger artworks through layout planning.",
+    "Intermediate: Use light and shadows to add mood and realism.",
+    "Advanced: Draw dynamic poses with energy and motion.",
+    "Advanced: Digital painting workflows and advanced techniques.",
+    "Advanced: Combine different media for creative expression.",
+    "Advanced: Take your skills to the next level in a creative masterclass."
+  ];
   const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4");
 
   return (
@@ -417,15 +436,18 @@ function InteractiveLessonsSection() {
                 tabIndex={0}
               />
             </div>
-            {/* Lesson title now directly beneath video, separated for clarity */}
+            {/* Lesson title and description now beneath video */}
             <div
               className={`artfusion-lesson-videolabel artfusion-lesson-level-${lessonLevels[idx].toLowerCase()}`}
+              style={{ flexDirection: "column", alignItems: "flex-start", gap: 2, padding: 0, background: "none", boxShadow: "none" }}
             >
               <span className="lesson-title-text">{lessonTitles[idx]}</span>
               <span className="lesson-label-meta">
                 | {lessonLevels[idx]}
                 <span className="lesson-duration-meta">| Duration: 1 hr</span>
               </span>
+              {/* Description block, visually separated below title & meta */}
+              <span className="lesson-desc-text">{lessonDescriptions[idx]}</span>
             </div>
           </div>
         ))}
