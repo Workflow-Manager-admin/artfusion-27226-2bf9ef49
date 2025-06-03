@@ -548,7 +548,10 @@ function AIArtAssistantSection() {
       <header style={{ marginBottom: 10, display: "flex", gap: 14, alignItems: "center" }}>
         <span role="img" aria-label="Robot" style={{ fontSize: "1.4em" }}>🤖</span>
         <span style={{
-          color: "var(--accent)",
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
           fontSize: "2.1rem",
           fontWeight: 800
         }}>AI Art Assistant</span>
