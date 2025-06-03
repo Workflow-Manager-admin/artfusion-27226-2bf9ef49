@@ -100,7 +100,7 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   transition: background 0.18s, color 0.12s, outline 0.16s;
-  box-shadow: 0 1px 10px 0 var(--accent), 0 0 1px #222 inset;
+  box-shadow: 0 1px 10px 0 #A259FF, 0 0 1px #222 inset;
 }
 /* Wide, animated accent border beneath active nav */
 .artfusion-nav-btn .artfusion-animated-accent {
