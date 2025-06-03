@@ -180,10 +180,10 @@ function ArtFusionMainContainer() {
                       right: 0,
                       bottom: -3,
                       height: 3,
-                      background: "linear-gradient(90deg, var(--accent) 60%, transparent 100%)",
+                      background: "linear-gradient(90deg, #A259FF 60%, transparent 100%)",
                       borderRadius: 2,
-                      opacity: 0.88,
-                      boxShadow: "0 2px 8px 0 var(--accent)",
+                      opacity: 0.92,
+                      boxShadow: "0 2px 8px 0 #A259FF",
                       transition: "opacity 0.24s",
                     }}
                   ></span>
@@ -208,7 +208,7 @@ function ArtFusionMainContainer() {
               borderRadius: 18,
               fontWeight: 600,
               fontSize: '1.13rem',
-              boxShadow: '0 4px 18px 0 rgba(255,111,97,0.12)',
+              boxShadow: '0 4px 18px 0 rgba(162,89,255,0.16)',
               cursor: "pointer",
               animation: "artfusion-fade-up-in 0.9s cubic-bezier(.35,1.11,.54,.99)",
             }}
