@@ -27,33 +27,93 @@ function Tooltip({ children, text, position = "top", visible }) {
   );
 }
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * Refined Main Container for ArtFusion:
+ * - Animations (fade, slide-in, border accent hover/entry)
+ * - ARIA improvements, focus trap for nav, more keyboard support
+ * - Tooltips for nav (onboarding + always-on)
+ * - Onboarding hint at first session
+ * - Discoverability: assistant/lessons nudge
+ */
 function ArtFusionMainContainer() {
-  // For tab switching
+  // For tab switching & onboarding state
   const [activeSection, setActiveSection] = useState('lessons');
+  const [onboarding, setOnboarding] = useState(() => {
+    try {
+      return window.localStorage.getItem('artfusion_seen_onboarding') !== 'yes';
+    } catch {
+      return true;
+    }
+  });
+  const [navTooltip, setNavTooltip] = useState(null);
+  const [focusIdx, setFocusIdx] = useState(-1); // for keyboard nav highlighting
   const navbarRef = useRef();
+  const contentRef = useRef();
 
-  // For focus indicator on nav
+  // For ARIA & accessibility
   const navSections = [
-    { key: 'lessons', label: 'Lessons', icon: '🎨', aria: 'Interactive Art Lessons' },
-    { key: 'assistant', label: 'AI Assistant', icon: '🤖', aria: 'AI Art Assistant' },
-    { key: 'gallery', label: 'Gallery', icon: '🖼️', aria: 'User Gallery' },
-    { key: 'resources', label: 'Resources', icon: '📚', aria: 'Resource Library' },
+    { key: 'lessons', label: 'Lessons', icon: '🎨', aria: 'Interactive Art Lessons', onboarding: 'Explore interactive tutorials & skills!' },
+    { key: 'assistant', label: 'AI Assistant', icon: '🤖', aria: 'AI Art Assistant', onboarding: 'Ask for help, tips, or critiques.' },
+    { key: 'gallery', label: 'Gallery', icon: '🖼️', aria: 'User Gallery', onboarding: 'See & share artwork from the community.' },
+    { key: 'resources', label: 'Resources', icon: '📚', aria: 'Resource Library', onboarding: 'Find curated art references.' },
   ];
 
-  // Keyboard navigation for accessibility & arrow keys
+  // Keyboard navigation for nav tab bar.
   const handleNavKeyDown = (e, idx) => {
     if (e.key === 'ArrowRight') {
-      setActiveSection(navSections[(idx + 1) % navSections.length].key);
+      const next = (idx + 1) % navSections.length;
+      setActiveSection(navSections[next].key);
+      setFocusIdx(next);
       e.preventDefault();
     } else if (e.key === 'ArrowLeft') {
-      setActiveSection(navSections[(idx - 1 + navSections.length) % navSections.length].key);
+      const prev = (idx - 1 + navSections.length) % navSections.length;
+      setActiveSection(navSections[prev].key);
+      setFocusIdx(prev);
+      e.preventDefault();
+    } else if ([' ', 'Enter'].includes(e.key)) {
+      setActiveSection(navSections[idx].key);
       e.preventDefault();
     }
   };
 
-  // Auto scroll to top on section change (good for mobile UX)
-  useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection]);
+  // Trap focus on nav if tabbing from menu for accessibility
+  useEffect(() => {
+    if (focusIdx >= 0) {
+      const navBtns = navbarRef.current.querySelectorAll('.artfusion-nav-btn');
+      if (navBtns[focusIdx]) navBtns[focusIdx].focus();
+    }
+  }, [focusIdx]);
+
+  // Onboarding state; after a short delay, show slight onboarding tooltip pointer
+  useEffect(() => {
+    if (onboarding) {
+      const timer = setTimeout(() => setNavTooltip('lessons'), 800);
+      return () => clearTimeout(timer);
+    } else {
+      setNavTooltip(null);
+    }
+  }, [onboarding]);
+
+  // After initial onboarding, mark as seen & stop showing onboarding nudge
+  const dismissOnboarding = () => {
+    setOnboarding(false);
+    setNavTooltip(null);
+    try {
+      window.localStorage.setItem('artfusion_seen_onboarding', 'yes');
+    } catch { /* ignore */ }
+  };
+
+  // Fade/slide animation on section change
+  const [fadeKey, setFadeKey] = useState(0);
+  useEffect(() => { setFadeKey((k) => k + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection]);
+  // for ARIA
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.setAttribute('tabindex', -1);
+      contentRef.current.focus();
+    }
+  }, [fadeKey]);
 
   return (
     <div className="artfusion-app" role="main">
@@ -71,33 +131,116 @@ function ArtFusionMainContainer() {
           </div>
           <div className="artfusion-navlinks" role="tablist" aria-label="Main Sections">
             {navSections.map((section, i) => (
-              <button
+              <Tooltip
                 key={section.key}
-                className={`artfusion-nav-btn${activeSection === section.key ? ' active' : ''}`}
-                aria-current={activeSection === section.key ? 'page' : undefined}
-                aria-label={section.aria}
-                tabIndex={0}
-                role="tab"
-                onClick={() => setActiveSection(section.key)}
-                onKeyDown={e => handleNavKeyDown(e, i)}
-                style={{
-                  outline: activeSection === section.key ? '2px solid var(--accent)' : undefined,
-                  outlineOffset: 2,
-                }}
+                text={
+                  navTooltip === section.key
+                    ? section.onboarding
+                    : section.key === "assistant"
+                      ? "Try the AI Art Assistant!" : undefined
+                }
+                visible={!!navTooltip && navTooltip === section.key}
+                position="bottom"
               >
-                <span aria-hidden="true" style={{ marginRight: 6 }}>{section.icon}</span>
-                <span>{section.label}</span>
-              </button>
+                <button
+                  className={`artfusion-nav-btn${activeSection === section.key ? ' active' : ''}`}
+                  aria-current={activeSection === section.key ? 'page' : undefined}
+                  aria-label={section.aria}
+                  aria-describedby={navTooltip === section.key ? `tooltip-${section.key}` : undefined}
+                  tabIndex={i === focusIdx ? 0 : 0}
+                  role="tab"
+                  onClick={() => {
+                    setActiveSection(section.key);
+                    if (onboarding) dismissOnboarding();
+                  }}
+                  onKeyDown={e => handleNavKeyDown(e, i)}
+                  onMouseEnter={() => setNavTooltip(section.key)}
+                  onMouseLeave={() => setNavTooltip(null)}
+                  style={{
+                    outline: activeSection === section.key ? '2px solid var(--accent)' : undefined,
+                    outlineOffset: 2,
+                    position: "relative",
+                    transition: "outline 0.18s, box-shadow 0.2s",
+                  }}
+                  id={`navbtn-${section.key}`}
+                  data-feature={section.key}
+                >
+                  <span aria-hidden="true" style={{ marginRight: 6 }}>
+                    {section.icon}
+                  </span>
+                  <span>{section.label}</span>
+                  {/* Animated accent border */}
+                  <span
+                    className="artfusion-animated-accent"
+                    aria-hidden="true"
+                    style={{
+                      display: activeSection === section.key ? "block" : "none",
+                      position: "absolute",
+                      left: 0,
+                      right: 0,
+                      bottom: -3,
+                      height: 3,
+                      background: "linear-gradient(90deg, var(--accent) 60%, transparent 100%)",
+                      borderRadius: 2,
+                      opacity: 0.88,
+                      boxShadow: "0 2px 8px 0 var(--accent)",
+                      transition: "opacity 0.24s",
+                    }}
+                  ></span>
+                </button>
+              </Tooltip>
             ))}
           </div>
         </div>
+        {/* Contextual onboarding nudge (for first-time users) */}
+        {onboarding && (
+          <div
+            className="artfusion-onboarding-nudge"
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: 70,
+              transform: 'translateX(-50%)',
+              zIndex: 200,
+              background: 'var(--accent)',
+              color: '#fff',
+              padding: '9px 22px',
+              borderRadius: 18,
+              fontWeight: 600,
+              fontSize: '1.13rem',
+              boxShadow: '0 4px 18px 0 rgba(255,111,97,0.12)',
+              cursor: "pointer",
+              animation: "artfusion-fade-up-in 0.9s cubic-bezier(.35,1.11,.54,.99)",
+            }}
+            tabIndex={0}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Quick start help"
+            onClick={dismissOnboarding}
+            onKeyDown={e => {
+              if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+                dismissOnboarding();
+              }
+            }}
+          >
+            Welcome to ArtFusion! Tap the tabs above to begin your creative journey. <span aria-hidden="true" style={{marginLeft: 10}}>✨</span>
+            <span style={{ marginLeft: 16, textDecoration: "underline", fontWeight: 500, cursor: "pointer" }}>Dismiss</span>
+          </div>
+        )}
       </nav>
 
       {/* Ombre Gradient Background Layer */}
       <div className="artfusion-gradient-bg" aria-hidden="true"></div>
 
-      {/* Main Content */}
-      <main className="artfusion-main container">
+      {/* Main Content with subtle fade-in */}
+      <main
+        className="artfusion-main container"
+        ref={contentRef}
+        style={{ animation: "artfusion-fade-in 0.65s cubic-bezier(.36,1.17,.53,1.1) both" }}
+        aria-live="polite"
+        tabIndex={-1}
+        key={fadeKey}
+      >
         {activeSection === 'lessons' && <InteractiveLessonsSection />}
         {activeSection === 'assistant' && <AIArtAssistantSection />}
         {activeSection === 'gallery' && <UserGallerySection />}
