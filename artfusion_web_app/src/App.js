@@ -446,9 +446,9 @@ function InteractiveLessonsSection() {
                 | {lessonLevels[idx]}
                 <span className="lesson-duration-meta">| Duration: 1 hr</span>
               </span>
-              {/* Description block, visually separated below title & meta */}
-              <p className="lesson-desc-text">{lessonDescriptions[idx]}</p>
             </div>
+            {/* Description should be outside the transparent/gradient title container */}
+            <p className="lesson-desc-text">{lessonDescriptions[idx]}</p>
           </div>
         ))}
       </div>
