@@ -85,43 +85,46 @@ body {
   background: transparent;
 }
 .artsplus-logo {
-  /* Brighter, more saturated ombre: vivid pink → strong purple → sky blue */
-  font-size: 1.22rem;
-  font-weight: 900;
-  letter-spacing: 0.7px;
+  /* Brighter, more saturated ombre: hot pink → vivid violet → rich blue-cyan */
+  font-size: 1.28rem;
+  font-weight: 950;
+  letter-spacing: 0.8px;
   color: transparent;
 
-  /* Updated ombre gradient: vivid, lighter for more pop */
-  background: linear-gradient(91deg, 
-    #ff7bda 7%,      /* bright bubblegum pink */
-    #d06efe 33%,     /* strong magenta purple */
-    #a259ff 57%,     /* intense mid purple */
-    #5ec6ff 88%      /* electric sky blue */
+  /* Strongest, vibrant and light-leaning pink-violet-blue gradient for max contrast */
+  background: linear-gradient(93deg, 
+    #ff4fcf 8%,    /* neon hot pink */
+    #ff7bfc 22%,   /* bright light magenta */
+    #b96dfd 41%,   /* vivid violet purple */
+    #6487ff 76%,   /* bold medium blue */
+    #36e4ff 96%    /* electric cyan blue for lively highlight */
   );
-  background-size: 140% auto;
+  background-size: 170% auto;
 
-  /* modern cross-browser text gradient support */
+  /* Cross-browser gradient-on-text support (all major engines) */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* For FireFox */
+  /* For Firefox */
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 
-  /* New vivid, semi-transparent white glow + soft dark anchor for maximum contrast */
+  /* Intensified white outer glow + sharper shadow for extremely strong legibility */
   text-shadow:
-    0 2px 8px rgba(255,255,255, 0.37),
-    0 1px 2px rgba(0,0,0,0.44),
-    0 1px 20px #ffffff66,
-    0 2.5px 18px #6ecfff44,
-    0 0.5px 0.7px #000;
-  
+    0 0 10px rgba(255,255,255,0.77),
+    0 2px 10px rgba(255,255,255,0.41),
+    0 0 18px #fff8,
+    0 0.8px 0.7px #000,
+    0 2px 24px #80e6ff66;
+
   display: flex;
   align-items: center;
-  gap: 7px;
-  line-height: 1.12;
+  gap: 8px;
+  line-height: 1.09;
   min-width: 0;
+  /* Slight letterspacing and bump in font for extra clarity against black */
 }
+
 .artsplus-logo::after {
   content: "S+";
   color: var(--accent);
