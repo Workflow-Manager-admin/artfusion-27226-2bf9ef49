@@ -722,22 +722,42 @@ function LessonCard({ title, level, color, desc }) {
       tabIndex={0}
       aria-label={`${title}, ${level} level`}
       style={{
-        borderLeft: `6px solid ${color}`,
+        borderLeft: `6px solid transparent`,
         background: "rgba(32,36,50,0.88)",
         boxShadow: "0 3px 14px 0 rgba(25,35,45,0.13)",
         minHeight: 152,
-        marginTop: 6
+        marginTop: 6,
+        /* Multi-colored border for accent */
+        backgroundImage: "none",
+        borderImage: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2) 1"
       }}
     >
       <div className="lesson-title" style={{ marginBottom: 2 }}>{title}</div>
-      <span className="lesson-level" style={{ fontSize: "1.03rem" }}>{level}</span>
+      {/* Gradient label for lesson level */}
+      <span
+        className="lesson-level"
+        style={{
+          fontSize: "1.03rem",
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent"
+        }}
+      >{level}</span>
       <div style={{
         color: "var(--text-secondary)",
         fontSize: "0.98rem",
         marginBottom: 11,
         marginTop: 7,
       }}>{desc}</div>
-      <button className="btn btn-small" disabled style={{ background: color, color: "#fff", marginTop: "auto", opacity: 0.9 }}>Start</button>
+      <button className="btn btn-small" disabled
+        style={{
+          background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+          color: "#fff",
+          marginTop: "auto",
+          opacity: 0.93,
+          boxShadow: "0 2px 8px 0 #A259FF40"
+        }}>Start</button>
     </article>
   );
 }
