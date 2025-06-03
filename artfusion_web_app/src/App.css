@@ -37,9 +37,9 @@ body {
   min-height: 100vh;
 }
 
-/* ======= ArtFusion Main Layout ======= */
+/* ======= ArtS+ Main Layout ======= */
 
-.artfusion-app {
+.artsplus-app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ body {
 /* Main vibrant gradient background overlay
    Covers the viewport with a pink-purple-blue glow,
    subtly angled for energy and depth */
-.artfusion-gradient-bg {
+.artsplus-gradient-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 110vh;
   z-index: 0;
@@ -65,7 +65,7 @@ body {
 }
 
 /* Navigation Bar */
-.artfusion-navbar {
+.artsplus-navbar {
   background: #232323;
   padding: 0;
   border-bottom: 1px solid var(--border-color);
@@ -74,7 +74,7 @@ body {
   z-index: 101;
   box-shadow: 0 2px 10px 0 rgba(16,18,30,0.25);
 }
-.artfusion-navbar-inner {
+.artsplus-navbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,38 +84,51 @@ body {
   padding-right: 6px;
   background: transparent;
 }
-.artfusion-logo {
-  font-size: 1.03rem; /* Reduced from 1.40rem */
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.artsplus-logo {
+  font-size: 1.14rem; /* Slightly larger for the + */
+  font-weight: 800;
+  letter-spacing: 0.6px;
   color: var(--text-color);
   display: flex;
   align-items: center;
-  gap: 6px; /* Slightly reduced */
-  line-height: 1.1;
+  gap: 7px; /* Adjust for + */
+  line-height: 1.12;
   min-width: 0;
 }
-.artfusion-navlinks {
+.artsplus-logo::after {
+  content: "S+";
+  color: var(--accent);
+  font-size: 1.08em;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-left: 1px;
+  position: relative;
+  top: 1px;
+  /* visually emphasizes the "+" */
+  text-shadow: 0 2px 6px #a259ff80;
+  display: none; /* Hide if directly in text but keep for reference */
+}
+.artsplus-navlinks {
   display: flex;
   gap: 4px; /* Less gap between nav items */
 }
-.artfusion-nav-btn {
+.artsplus-nav-btn {
   background: none;
   color: var(--text-color);
   border: none;
   border-radius: 4px; /* Slightly smaller */
   padding: 4px 10px; /* Reduced padding */
-  font-size: 0.96rem; /* Slightly smaller font */
-  font-weight: 500;
+  font-size: 0.97rem; /* Slightly larger font for + */
+  font-weight: 600;
   min-height: 28px;
   min-width: 44px; /* touch target for accessibility */
   transition: background 0.08s, color 0.1s;
   cursor: pointer;
   outline: none;
 }
-.artfusion-nav-btn.active,
-.artfusion-nav-btn:focus,
-.artfusion-nav-btn:hover {
+.artsplus-nav-btn.active,
+.artsplus-nav-btn:focus,
+.artsplus-nav-btn:hover {
   color: var(--accent);
   background: rgba(60,60,60, 0.26);
   outline: 2px solid var(--accent);
@@ -124,21 +137,21 @@ body {
   box-shadow: 0 1px 10px 0 #A259FF, 0 0 1px #222 inset;
 }
 /* Wide, animated accent border beneath active nav */
-.artfusion-nav-btn .artfusion-animated-accent {
+.artsplus-nav-btn .artsplus-animated-accent {
   display: block;
   left: -4%;
   right: -4%;
   bottom: -6px;
   height: 3px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent) 55%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 60%, transparent 100%);
   opacity: 0.94;
   box-shadow: 0 1px 7px 0 #A259FF, 0 0 2px #1a1a1a inset;
-  animation: artfusion-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
+  animation: artsplus-accent-animate 0.8s cubic-bezier(.31,1.12,.49,.97) both;
 }
 
 /* Main Layout & Content */
-.artfusion-main {
+.artsplus-main {
   margin-top: 60px; /* Reduced for shorter navbar */
   margin-bottom: 32px;
   min-height: 65vh;
@@ -154,7 +167,7 @@ body {
   box-sizing: border-box;
 }
 
-.artfusion-section {
+.artsplus-section {
   background: rgba(23,26,32,0.90);
   box-shadow: 0 4px 42px 0 rgba(25,25,35,0.12);
   border-radius: 16px;
@@ -164,7 +177,7 @@ body {
   z-index:2;
 }
 
-.artfusion-section h2 {
+.artsplus-section h2 {
   color: var(--accent);
   font-size: 2.20rem;
   font-weight: 700;
@@ -174,7 +187,7 @@ body {
   gap: 10px;
 }
 
-.artfusion-section p {
+.artsplus-section p {
   margin-top: 4px;
   margin-bottom: 22px;
   max-width: 600px;
@@ -182,7 +195,7 @@ body {
 }
 
 /* --- Interactive Art Lessons --- */
-.artfusion-lessons-grid {
+.artsplus-lessons-grid {
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
@@ -461,15 +474,15 @@ body {
 }
 
 /* --- Footer --- */
-.artfusion-footer {
+.artsplus-footer {
   width: 100%;
   background: #101215;
   border-top: 1px solid var(--border-color);
   min-height: 32px;
   text-align: center;
   color: var(--text-secondary);
-  font-size: 1.03rem;
-  padding: 12px 0;
+  font-size: 1.09rem;
+  padding: 13px 0;
   z-index: 101;
   position: relative;
 }
