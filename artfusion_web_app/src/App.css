@@ -114,6 +114,54 @@ body {
   -moz-text-fill-color: transparent;
 }
 
+/* Gradient text effect for major nav/tab/section headings (matches logo branding) */
+.artsplus-gradient-title,
+.artsplus-section-title,
+.artfusion-section-title,
+.artfusion-nav-tab-label {
+  background: linear-gradient(90deg,#FF70A6,#A259FF,#56CCF2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1.18;
+  transition: background 0.18s;
+}
+
+.artsplus-gradient-title {
+  font-size: 2.16rem;
+}
+.artsplus-section-title,
+.artfusion-section-title {
+  font-size: 2.025rem;
+}
+
+.artfusion-nav-tab-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0 2px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+/* Responsive font sizing for section/tab titles */
+@media (max-width: 700px) {
+  .artsplus-gradient-title,
+  .artsplus-section-title,
+  .artfusion-section-title {
+    font-size: 1.35rem;
+  }
+  .artfusion-nav-tab-label {
+    font-size: 1.01rem;
+  }
+}
+
 .artsplus-logo::after {
   content: "S+";
   color: var(--accent-solid);
