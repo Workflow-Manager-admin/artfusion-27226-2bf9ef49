@@ -447,7 +447,7 @@ function InteractiveLessonsSection() {
                 <span className="lesson-duration-meta">| Duration: 1 hr</span>
               </span>
               {/* Description block, visually separated below title & meta */}
-              <span className="lesson-desc-text">{lessonDescriptions[idx]}</span>
+              <p className="lesson-desc-text">{lessonDescriptions[idx]}</p>
             </div>
           </div>
         ))}
