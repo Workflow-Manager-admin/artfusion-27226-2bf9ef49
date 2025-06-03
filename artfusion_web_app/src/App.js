@@ -146,29 +146,36 @@ function InteractiveLessonsSection() {
 // PUBLIC_INTERFACE
 function AIArtAssistantSection() {
   return (
-    <section className="artfusion-section artfusion-ai-assistant">
-      <h2>
-        <span role="img" aria-label="Robot">🤖</span> AI Art Assistant
-      </h2>
+    <section className="artfusion-section artfusion-ai-assistant" aria-labelledby="ai-assistant-heading">
+      <h2 id="ai-assistant-heading" className="visually-hidden">AI Art Assistant</h2>
+      <header style={{ marginBottom: 10, display: "flex", gap: 14, alignItems: "center" }}>
+        <span role="img" aria-label="Robot" style={{ fontSize: "1.4em" }}>🤖</span>
+        <span style={{
+          color: "var(--accent)",
+          fontSize: "2.1rem",
+          fontWeight: 800
+        }}>AI Art Assistant</span>
+      </header>
       <p>
-        Chat with our AI to get real-time artistic feedback, inspiration, or quick tips.
+        Chat with our AI for instant artistic feedback, spark new ideas,
+        and get creative <b>tips</b>. <span style={{ color: "var(--base-light)" }}>Coming soon!</span>
       </p>
-      <div className="artfusion-ai-widget">
-        {/* Placeholder Chat UI */}
-        <div className="artfusion-ai-chat">
-          <div className="artfusion-ai-bubble artfusion-ai-bubble-in">Hi! Ask me anything about art or your creative process 🚀</div>
-          <div className="artfusion-ai-bubble artfusion-ai-bubble-out">How can I create depth with color?</div>
-          <div className="artfusion-ai-bubble artfusion-ai-bubble-in">Try layering cooler and warmer tones to build dimensionality!</div>
+      <div className="artfusion-ai-widget" aria-label="Demo AI chat" role="region">
+        <div className="artfusion-ai-chat" style={{ marginBottom: "0.3em" }}>
+          <AssistantBubble inout="in" text="Hi! Ask me anything about art or your creative process 🚀" />
+          <AssistantBubble inout="out" text="How can I create depth with color?" />
+          <AssistantBubble inout="in" text="Try layering cooler and warmer tones to build dimensionality!" />
         </div>
         <input
           className="artfusion-ai-input"
           type="text"
           placeholder="Type your question or upload your artwork for feedback..."
           disabled
+          aria-label="AI art assistant entry (demo only, disabled)"
         />
       </div>
       <div className="artfusion-ai-note">
-        <em>Note: Demo chat UI only. Full AI integration coming soon.</em>
+        <em>Note: <b>Demo chat UI only</b>. <span style={{ color: "var(--accent)" }}>Full AI coming soon.</span></em>
       </div>
     </section>
   );
@@ -177,24 +184,37 @@ function AIArtAssistantSection() {
 // PUBLIC_INTERFACE
 function UserGallerySection() {
   return (
-    <section className="artfusion-section artfusion-gallery">
-      <h2>
-        <span role="img" aria-label="Gallery">🖼️</span> User Gallery
-      </h2>
+    <section className="artfusion-section artfusion-gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" className="visually-hidden">User Gallery</h2>
+      <header style={{ marginBottom: 10, display: "flex", gap: 12, alignItems: "center" }}>
+        <span role="img" aria-label="Gallery" style={{ fontSize: "1.4em" }}>🖼️</span>
+        <span style={{
+          color: "var(--accent)",
+          fontSize: "2.1rem",
+          fontWeight: 800
+        }}>User Gallery</span>
+      </header>
       <p>
-        Upload and showcase your artwork! Browse, like, and comment on other artists' creations.
+        Upload and showcase your <b>artwork</b>! Browse, like, and comment on other artists' creations.
       </p>
-      <div className="artfusion-gallery-grid">
+      <div
+        className="artfusion-gallery-grid"
+        style={{ justifyContent: "left", marginBottom: 10 }}
+        aria-label="User artwork"
+        role="list"
+      >
         {/* Demo artwork cards */}
         <GalleryCard username="artist_rose" imgSrc="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=400&q=80" title="Blossom" />
         <GalleryCard username="sketchy_jay" imgSrc="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=facearea&w=400&q=80" title="Urban Improv" />
         <GalleryCard username="colorcarefree" imgSrc="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&q=80" title="Chromatic" />
       </div>
       <div className="artfusion-upload-hint">
-        <button className="btn btn-large" disabled>Upload Artwork (Demo)</button>
+        <button className="btn btn-large" style={{ background: "var(--accent)", opacity: 0.85 }} disabled>
+          Upload Artwork (Demo)
+        </button>
       </div>
     </section>
-  )
+  );
 }
 
 // PUBLIC_INTERFACE
