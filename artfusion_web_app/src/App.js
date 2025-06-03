@@ -1,63 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
 // PUBLIC_INTERFACE
 function ArtFusionMainContainer() {
-  // For simple demo tab switching
+  // For tab switching
   const [activeSection, setActiveSection] = useState('lessons');
+  const navbarRef = useRef();
 
-  // For minimalist icon usage (no library), emoji placeholders
-  const icons = {
-    lessons: '🎨',
-    assistant: '🤖',
-    gallery: '🖼️',
-    resources: '📚',
+  // For focus indicator on nav
+  const navSections = [
+    { key: 'lessons', label: 'Lessons', icon: '🎨', aria: 'Interactive Art Lessons' },
+    { key: 'assistant', label: 'AI Assistant', icon: '🤖', aria: 'AI Art Assistant' },
+    { key: 'gallery', label: 'Gallery', icon: '🖼️', aria: 'User Gallery' },
+    { key: 'resources', label: 'Resources', icon: '📚', aria: 'Resource Library' },
+  ];
+
+  // Keyboard navigation for accessibility & arrow keys
+  const handleNavKeyDown = (e, idx) => {
+    if (e.key === 'ArrowRight') {
+      setActiveSection(navSections[(idx + 1) % navSections.length].key);
+      e.preventDefault();
+    } else if (e.key === 'ArrowLeft') {
+      setActiveSection(navSections[(idx - 1 + navSections.length) % navSections.length].key);
+      e.preventDefault();
+    }
   };
 
+  // Auto scroll to top on section change (good for mobile UX)
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection]);
+
   return (
-    <div className="artfusion-app">
+    <div className="artfusion-app" role="main">
       {/* Navigation Bar */}
-      <nav className="navbar artfusion-navbar">
+      <nav
+        className="navbar artfusion-navbar"
+        aria-label="Main navigation"
+        ref={navbarRef}
+        tabIndex={-1}
+      >
         <div className="artfusion-navbar-inner container">
-          <div className="logo artfusion-logo">
-            <span className="logo-symbol" style={{ color: 'var(--accent)' }}>*</span>
+          <div className="logo artfusion-logo" role="heading" aria-level={1} tabIndex={0}>
+            <span className="logo-symbol" style={{ color: 'var(--accent)', fontSize: '1.4em' }} aria-hidden="true">*</span>
             ArtFusion
           </div>
-          <div className="artfusion-navlinks">
-            <button
-              className={`artfusion-nav-btn${activeSection === 'lessons' ? ' active' : ''}`}
-              onClick={() => setActiveSection('lessons')}
-              aria-label="Interactive Art Lessons"
-            >
-              {icons.lessons} Lessons
-            </button>
-            <button
-              className={`artfusion-nav-btn${activeSection === 'assistant' ? ' active' : ''}`}
-              onClick={() => setActiveSection('assistant')}
-              aria-label="AI Art Assistant"
-            >
-              {icons.assistant} AI Assistant
-            </button>
-            <button
-              className={`artfusion-nav-btn${activeSection === 'gallery' ? ' active' : ''}`}
-              onClick={() => setActiveSection('gallery')}
-              aria-label="User Gallery"
-            >
-              {icons.gallery} Gallery
-            </button>
-            <button
-              className={`artfusion-nav-btn${activeSection === 'resources' ? ' active' : ''}`}
-              onClick={() => setActiveSection('resources')}
-              aria-label="Resource Library"
-            >
-              {icons.resources} Resources
-            </button>
+          <div className="artfusion-navlinks" role="tablist" aria-label="Main Sections">
+            {navSections.map((section, i) => (
+              <button
+                key={section.key}
+                className={`artfusion-nav-btn${activeSection === section.key ? ' active' : ''}`}
+                aria-current={activeSection === section.key ? 'page' : undefined}
+                aria-label={section.aria}
+                tabIndex={0}
+                role="tab"
+                onClick={() => setActiveSection(section.key)}
+                onKeyDown={e => handleNavKeyDown(e, i)}
+                style={{
+                  outline: activeSection === section.key ? '2px solid var(--accent)' : undefined,
+                  outlineOffset: 2,
+                }}
+              >
+                <span aria-hidden="true" style={{ marginRight: 6 }}>{section.icon}</span>
+                <span>{section.label}</span>
+              </button>
+            ))}
           </div>
         </div>
       </nav>
 
       {/* Ombre Gradient Background Layer */}
-      <div className="artfusion-gradient-bg"></div>
+      <div className="artfusion-gradient-bg" aria-hidden="true"></div>
 
       {/* Main Content */}
       <main className="artfusion-main container">
@@ -68,8 +79,10 @@ function ArtFusionMainContainer() {
       </main>
 
       {/* Footer */}
-      <footer className="artfusion-footer">
-        <span>ArtFusion &copy; {new Date().getFullYear()}</span>
+      <footer className="artfusion-footer" tabIndex={0}>
+        <span>
+          ArtFusion &copy; {new Date().getFullYear()} &ndash; <span style={{color: "var(--accent)"}}>Unleash Your Inner Artist</span>
+        </span>
       </footer>
     </div>
   );
