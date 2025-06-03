@@ -178,11 +178,16 @@ function ArtSPlusMainContainer() {
                   opacity="0.80"
                 />
                 {/* Paint cakes */}
-                <circle cx="10.8" cy="15.5" r="1.32" fill="#FFE066" stroke="#fff6e0" strokeWidth="0.22"/>
-                <circle cx="15.0" cy="10.7" r="1.28" fill="#55D6F6" stroke="#d0f2ff" strokeWidth="0.18"/>
-                <circle cx="12.7" cy="19.3" r="1.12" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.20"/>
-                <circle cx="20.6" cy="14.2" r="1.28" fill="#FF6F61" stroke="#ffd5cf" strokeWidth="0.15"/>
-                <circle cx="19" cy="18.5" r="1.05" fill="#60C878" stroke="#e4ffea" strokeWidth="0.14"/>
+                {/* YELLOW - bright */}
+                <circle cx="10.8" cy="15.5" r="1.32" fill="#FFEB3B" stroke="#fffde7" strokeWidth="0.22"/>
+                {/* BLUE - saturated */}
+                <circle cx="15.0" cy="10.7" r="1.28" fill="#2196F3" stroke="#bbdeff" strokeWidth="0.18"/>
+                {/* PINK - vibrant */}
+                <circle cx="12.7" cy="19.3" r="1.12" fill="#FF4081" stroke="#ffdcef" strokeWidth="0.20"/>
+                {/* GREEN - vivid */}
+                <circle cx="20.6" cy="14.2" r="1.28" fill="#3DDC97" stroke="#e5fff3" strokeWidth="0.15"/>
+                {/* PURPLE - punchy accent */}
+                <circle cx="19" cy="18.5" r="1.05" fill="#A259FF" stroke="#e5d5fd" strokeWidth="0.14"/>
                 {/* Subtle light reflection for 3D effect, use lighter brown/white with reduced opacity */}
                 <ellipse
                   cx="13.8"
