@@ -449,12 +449,12 @@ body {
   border-radius: 10px;
   padding: 20px 18px;
   margin-bottom: 8px;
-  box-shadow: 0 2px 6px 0 rgba(30,31,42,0.07);
+  box-shadow: 0 1.5px 5px 0 rgba(30,31,42,0.09);
   min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: rgba(32,36,50,0.85);
+  background: rgba(32,36,50,0.92);
 
   /* Multi-color left border for lesson cards */
   border-left: 6px solid transparent;
@@ -517,21 +517,23 @@ body {
   color: #fff;
   margin-bottom: 2px;
   margin-left: 0;
+  box-shadow: none; /* Remove any box or white-ish background artifact */
 }
 .artfusion-ai-bubble-in {
-  background: linear-gradient(120deg, #24292f 30%, #434343 100%);
+  background: linear-gradient(120deg, #23272e 30%, #434343 100%);
   color: #fff;
   align-self: flex-start;
 }
 .artfusion-ai-bubble-out {
-  background: linear-gradient(90deg, #FF70A620 0%, #A259FF33 40%, #56CCF220 100%);
-  background-blend-mode: lighten;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  /* Use a subtle gradient without full transparency for better contrast */
+  background: linear-gradient(90deg, #a259ff33 10%, #56ccf230 100%);
+  background-blend-mode: darken;
+  color: #fff;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: #fff;
+  -moz-background-clip: border-box;
+  -moz-text-fill-color: #fff;
   align-self: flex-end;
   font-weight: 700;
 }
