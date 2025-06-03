@@ -1,18 +1,27 @@
 :root {
-  --base-light: #00ffff;
-  --base-dark: #00008b;
+  /* ArtFusion color scheme */
+  --primary-bg: #000000;
+  --secondary-bg-gradient: linear-gradient(110deg, #000000 0%, #232323 80%, #434343 100%);
+  --accent: #FF6F61;
   --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --text-secondary: rgba(255, 255, 255, 0.74);
+  --border-color: rgba(255, 255, 255, 0.12);
+
+  /* Extra for subtle UI */
+  --nav-bg-gradient: linear-gradient(90deg, #101010 60%, #434343 100%);
+  --btn-gradient: linear-gradient(88deg, #FF6F61 80%, #f09819 100%);
 }
+
 
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--base-dark);
+  min-height: 100vh;
+  background: var(--secondary-bg-gradient) fixed;
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.5s;
 }
 
 .app {
