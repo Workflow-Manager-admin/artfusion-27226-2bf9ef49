@@ -262,7 +262,33 @@ function ArtFusionMainContainer() {
  * InteractiveLessonsSection: Displays a 4x4 grid of 16 art lesson videos (placeholders), matching ArtFusion's modern theme.
  */
 function InteractiveLessonsSection() {
-  const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4"); // 1hr+ placeholder, replace if real URLs become available
+  // Skill progression titles for each video lesson (4x4 grid)
+  const lessonTitles = [
+    "Beginner: Sketching Basics",
+    "Beginner: Shapes & Forms",
+    "Beginner: Simple Shading",
+    "Beginner: Still Life Setup",
+    "Novice: Color Introduction",
+    "Novice: Blending Techniques",
+    "Novice: Drawing Faces",
+    "Novice: Simple Landscapes",
+    "Intermediate: Figure Drawing",
+    "Intermediate: Perspective",
+    "Intermediate: Composition",
+    "Intermediate: Lighting & Shadows",
+    "Advanced: Dynamic Poses",
+    "Advanced: Digital Painting",
+    "Advanced: Mixed Media",
+    "Advanced: Creative Masterclass"
+  ];
+  // Each lesson can also have a mapped skill level for accent styling if needed
+  const lessonLevels = [
+    "Beginner", "Beginner", "Beginner", "Beginner",
+    "Novice", "Novice", "Novice", "Novice",
+    "Intermediate", "Intermediate", "Intermediate", "Intermediate",
+    "Advanced", "Advanced", "Advanced", "Advanced"
+  ];
+  const videoUrls = Array(16).fill("https://www.w3schools.com/html/mov_bbb.mp4"); // 1hr+ placeholder
 
   return (
     <section className="artfusion-section artfusion-lessons" aria-labelledby="lessons-heading">
@@ -310,30 +336,36 @@ function InteractiveLessonsSection() {
                   boxShadow: "0 2px 18px 0 rgba(20,18,33,0.25)",
                   outline: "none"
                 }}
-                aria-label={`Art Lesson Video ${idx + 1}`}
+                aria-label={`Art Lesson Video ${idx + 1}: ${lessonTitles[idx]}`}
                 tabIndex={0}
               />
             </div>
             <div
-              className="artfusion-lesson-videolabel"
+              className={`artfusion-lesson-videolabel artfusion-lesson-level-${lessonLevels[idx].toLowerCase()}`}
               style={{
                 color: "var(--accent)",
-                fontWeight: 600,
-                fontSize: "1.03rem",
+                fontWeight: 700,
+                fontSize: "1.09rem",
                 letterSpacing: "0.5px",
                 textAlign: "left",
-                marginTop: 10,
-                marginLeft: 2
+                marginTop: 14,
+                marginLeft: 2,
+                marginBottom: 2,
+                lineHeight: 1.3,
+                textShadow: "0 2px 12px #24292f88",
+                transition: "color 0.19s"
               }}
             >
-              {`Lesson ${idx + 1}`}
+              {lessonTitles[idx]}
               <span style={{
                 color: "var(--text-secondary)",
                 fontWeight: 400,
-                marginLeft: 6,
-                fontSize: "0.91rem"
+                marginLeft: 8,
+                fontSize: "0.94rem",
+                letterSpacing: 0
               }}>
-                | {`Duration: 1 hr`}
+                | {lessonLevels[idx]}
+                <span style={{ marginLeft: 8, fontSize: "0.84em" }}>| Duration: 1 hr</span>
               </span>
             </div>
           </div>
