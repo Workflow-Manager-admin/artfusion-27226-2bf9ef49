@@ -566,9 +566,9 @@ body {
   gap: 22px;
 }
 .artfusion-gallery-card {
-  background: rgba(33,37,48,0.90);
+  background: rgba(33,37,48,0.92);
   border-radius: 10px;
-  box-shadow: 0 2px 8px 0 rgba(32,32,39, 0.11);
+  box-shadow: 0 1px 5px 0 rgba(32,32,39, 0.08);
   width: 210px;
   min-height: 245px;
   display: flex;
