@@ -643,8 +643,8 @@ body {
 .artsplus-footer {
   flex-shrink: 0;
   width: 100vw;
-  background: #101215;
-  border-top: 1px solid var(--border-color);
+  background: none !important;
+  border-top: none !important;
   min-height: 40px;
   text-align: center;
   color: var(--text-secondary);
