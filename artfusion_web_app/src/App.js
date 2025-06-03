@@ -328,7 +328,18 @@ function ArtSPlusMainContainer() {
       {/* Footer */}
       <footer className="artsplus-footer" tabIndex={0}>
         <span>
-          ArtS+ &copy; {new Date().getFullYear()} &ndash; <span style={{color: "var(--accent)"}}>Unleash Your Inner Artist</span>
+          ArtS+ &copy; {new Date().getFullYear()} &ndash;
+          <span
+            style={{
+              background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              fontWeight: 700
+            }}
+          >
+            Unleash Your Inner Artist
+          </span>
         </span>
       </footer>
     </div>
