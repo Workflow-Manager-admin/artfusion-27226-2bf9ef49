@@ -91,34 +91,56 @@ function ArtFusionMainContainer() {
 // PUBLIC_INTERFACE
 function InteractiveLessonsSection() {
   return (
-    <section className="artfusion-section artfusion-lessons">
-      <h2>
-        <span role="img" aria-label="Palette">🎨</span> Interactive Art Lessons
-      </h2>
+    <section className="artfusion-section artfusion-lessons" aria-labelledby="lessons-heading">
+      <h2 id="lessons-heading" className="visually-hidden">Interactive Art Lessons</h2>
+      <header style={{ marginBottom: 12, display: "flex", gap: 14, alignItems: "center" }}>
+        <span
+          role="img"
+          aria-label="Palette"
+          style={{ fontSize: "1.7em" }}
+        >🎨</span>
+        <span style={{
+          color: "var(--accent)",
+          fontSize: "2.1rem",
+          fontWeight: 800,
+          letterSpacing: 1
+        }}>
+          Interactive Art Lessons
+        </span>
+      </header>
       <p>
-        Step-by-step art tutorials and lessons for all skill levels.<br />
-        Try sketching, painting, or exploring digital art!
+        Step-by-step art tutorials and lessons for&nbsp;
+        <b>every skill level</b>.<br />
+        Try <strong>sketching</strong>, <strong>painting</strong>, or exploring <strong>digital art</strong> – new lessons weekly!
       </p>
-      <div className="artfusion-lessons-grid">
-        {/* Placeholder Cards */}
+      <div
+        className="artfusion-lessons-grid"
+        style={{ justifyContent: "center" }}
+        aria-label="Lesson topics"
+        role="region"
+      >
+        {/* Accessible Demo Lesson Cards */}
         <LessonCard
-          title="Introduction to Digital Sketching"
+          title="Intro to Digital Sketching"
           level="Beginner"
           color="#FF6F61"
+          desc="Basic tools, structure, and line confidence."
         />
         <LessonCard
-          title="Shading and Light Techniques"
+          title="Shading & Light Techniques"
           level="Intermediate"
           color="#FFBB00"
+          desc="Learn shadows, blending, and form illumination."
         />
         <LessonCard
           title="Dynamic Color Composition"
           level="Advanced"
           color="#66F1FF"
+          desc="Master palette choice and dramatic scenes."
         />
       </div>
     </section>
-  )
+  );
 }
 
 // PUBLIC_INTERFACE
