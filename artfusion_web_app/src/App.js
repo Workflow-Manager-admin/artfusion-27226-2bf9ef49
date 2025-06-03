@@ -125,7 +125,13 @@ function ArtSPlusMainContainer() {
         tabIndex={-1}
       >
         <div className="artsplus-navbar-inner container">
-          <div className="logo artsplus-logo" role="heading" aria-level={1} tabIndex={0}>
+          <div
+            className="logo artsplus-logo"
+            role="heading"
+            aria-level={1}
+            tabIndex={0}
+            /* No style prop here: all text gradient handled by new CSS */
+          >
             {/* Art Palette SVG icon replaces star logo */}
             <span className="logo-symbol" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', fontSize: '1.25em', lineHeight: '1.1' }}>
               <svg

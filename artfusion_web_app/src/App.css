@@ -88,7 +88,22 @@ body {
   font-size: 1.14rem; /* Slightly larger for the + */
   font-weight: 800;
   letter-spacing: 0.6px;
-  color: var(--text-color);
+  /* Remove default color for gradient text */
+  color: transparent;
+  background: linear-gradient(90deg, #FF6FD8 12%, #A259FF 51%, #43E0FE 88%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* For Firefox compatibility */
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  /* Add glow for dark contrast */
+  text-shadow:
+      0 2px 12px #A259FF50,
+      0 1.5px 6px #3e227a44,
+      0 0.5px 0.7px #000;
+  /* Keep existing logo layout */
   display: flex;
   align-items: center;
   gap: 7px; /* Adjust for + */
