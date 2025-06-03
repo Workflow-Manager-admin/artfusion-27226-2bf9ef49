@@ -29,19 +29,19 @@ function Tooltip({ children, text, position = "top", visible }) {
 
 /**
  * PUBLIC_INTERFACE
- * Refined Main Container for ArtFusion:
+ * Refined Main Container for ArtS+:
  * - Animations (fade, slide-in, border accent hover/entry)
  * - ARIA improvements, focus trap for nav, more keyboard support
  * - Tooltips for nav (onboarding + always-on)
  * - Onboarding hint at first session
  * - Discoverability: assistant/lessons nudge
  */
-function ArtFusionMainContainer() {
+function ArtSPlusMainContainer() {
   // For tab switching & onboarding state
   const [activeSection, setActiveSection] = useState('lessons');
   const [onboarding, setOnboarding] = useState(() => {
     try {
-      return window.localStorage.getItem('artfusion_seen_onboarding') !== 'yes';
+      return window.localStorage.getItem('artsplus_seen_onboarding') !== 'yes';
     } catch {
       return true;
     }
