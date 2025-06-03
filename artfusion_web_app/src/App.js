@@ -126,7 +126,46 @@ function ArtFusionMainContainer() {
       >
         <div className="artfusion-navbar-inner container">
           <div className="logo artfusion-logo" role="heading" aria-level={1} tabIndex={0}>
-            <span className="logo-symbol" style={{ color: 'var(--accent)', fontSize: '1.1em', lineHeight: '1.1' }} aria-hidden="true">*</span>
+            {/* Art Palette SVG icon replaces star logo */}
+            <span className="logo-symbol" aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', fontSize: '1.25em', lineHeight: '1.1' }}>
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  display: 'block',
+                  verticalAlign: 'middle',
+                  marginRight: 2,
+                }}
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="15"
+                  cy="14"
+                  rx="11"
+                  ry="9"
+                  fill="url(#paletteOmbre)"
+                  stroke="var(--accent)"
+                  strokeWidth="1.5"
+                />
+                <ellipse cx="9.5" cy="13.8" rx="1.05" ry="1.05" fill="#FFDB57" />
+                <ellipse cx="14.6" cy="9.8" rx="1.07" ry="1.07" fill="#64D8FF" />
+                <ellipse cx="13.0" cy="17.7" rx="1.05" ry="1.05" fill="#A259FF" />
+                <ellipse cx="18.1" cy="14.8" rx="1.02" ry="1.02" fill="#E87A41" />
+                <path
+                  d="M18.2 21.5c-2 .4-2.3-1.1-1.7-2.2.6-1.1 2.7-1.2 3.1 0 .36.8-.13 2-1.4 2.2Z"
+                  fill="#fff" opacity="0.8"
+                />
+                <defs>
+                  <linearGradient id="paletteOmbre" x1="4" y1="7" x2="20" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#232323" />
+                    <stop offset="1" stopColor="#1A1A1A" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
             ArtFusion
           </div>
           <div className="artfusion-navlinks" role="tablist" aria-label="Main Sections">
