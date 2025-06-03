@@ -605,12 +605,14 @@ function AIArtAssistantSection() {
             style={{
               minWidth: 77,
               marginLeft: 6,
-              background: "var(--accent)",
+              background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
               color: "#fff",
               borderRadius: 7,
-              opacity: input.length ? 0.88 : 0.48,
+              opacity: input.length ? 0.90 : 0.53,
               fontWeight: 600,
-              transition: "opacity 0.16s"
+              transition: "opacity 0.16s",
+              border: "none",
+              boxShadow: "0 2px 10px 0 #A259FF40"
             }}
             type="submit"
             disabled={!input.trim() || isLoading}
