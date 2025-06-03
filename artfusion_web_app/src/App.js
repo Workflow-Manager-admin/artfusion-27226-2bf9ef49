@@ -580,7 +580,7 @@ function AIArtAssistantSection() {
               fontWeight: 600,
               transition: "opacity 0.16s",
               border: "none",
-              boxShadow: "0 2px 10px 0 #A259FF40"
+              boxShadow: "none"
             }}
             type="submit"
             disabled={!input.trim() || isLoading}
@@ -632,7 +632,8 @@ function UserGallerySection() {
           background: "linear-gradient(90deg, #FF70A6, #A259FF, #56CCF2)",
           opacity: 0.89,
           color: "#fff",
-          border: "none"
+          border: "none",
+          boxShadow: "none"
         }} disabled>
           Upload Artwork (Demo)
         </button>
@@ -767,7 +768,8 @@ function AssistantBubble({ inout, text }) {
         fontWeight: inout === "in" ? 500 : 400,
         fontStyle: inout === "in" ? "normal" : "italic",
         background: "none",
-        boxShadow: "none"
+        boxShadow: "none",
+        border: "none"
       }}
     >
       {text}
