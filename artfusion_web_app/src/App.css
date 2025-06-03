@@ -525,3 +525,13 @@ body {
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+/* Show a focus ring for accessibility, but only when using keyboard ("focus-visible") */
+.artfusion-nav-btn:focus-visible,
+.artfusion-footer:focus-visible,
+.artfusion-section:focus-visible,
+.artfusion-navbar:focus-visible {
+  outline: 3px solid var(--base-light);
+  outline-offset: 3px;
+  background: rgba(0,255,255,0.05);
+}
